@@ -11,11 +11,12 @@ const footer = () => {
       <footer className={classes.footer}>
         <div className={classes.links}>
           <Navlink link="/">Home</Navlink>
-          <Navlink link="/Auth">Auth</Navlink>
+          <Navlink link="/auth">Auth</Navlink>
+          <Navlink link="/gamelobby">GameLobby</Navlink>
         </div>
         <div className={classes.rights}>
           <p>@ {CURRENT_YEAR} All Rights Reserved</p>
-          <p>Developed By Varsh</p>
+          <p>Developed By LexSchool Dev</p>
         </div>
       </footer>
     </Container>

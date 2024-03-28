@@ -8,7 +8,8 @@ const navlinks = () => {
     <div>
       <ul className={classes.navlinks}>
         <Navlink link="/">Home</Navlink>
-        <Navlink link="/Auth">Auth</Navlink>
+        <Navlink link="/auth">Auth</Navlink>
+        <Navlink link="/gamelobby">GameLobby</Navlink>
       </ul>
     </div>
   )
