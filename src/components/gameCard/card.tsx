@@ -1,6 +1,6 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
-import "./styles.css";
+import styles from "./card.module.css";
 import { Grid } from "@mui/material";
 
 export default function GameCard({ cardData }) {
@@ -14,6 +14,7 @@ export default function GameCard({ cardData }) {
     <Grid container direction="row" justifyContent="center" alignItems="center">
       {cardData.map((item) => (
         <Card
+          key={item.id}
           sx={{
             width: 220,
             height: 250,
@@ -29,7 +30,7 @@ export default function GameCard({ cardData }) {
           <img
             src={mouseOver === item.id ? item.imageOut : item.imageOver}
             alt="game"
-            className="image"
+            className={styles.image}
           />
         </Card>
       ))}

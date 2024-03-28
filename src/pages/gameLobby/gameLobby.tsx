@@ -1,3 +1,4 @@
+import React from "react";
 import AppConstants from "../../AppConstants";
 import GameCard from "../../components/gameCard/card";
 
