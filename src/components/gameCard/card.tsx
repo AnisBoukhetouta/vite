@@ -23,7 +23,7 @@ export default function GameCard({ cardData }) {
             boxShadow: 10,
             m: 2,
           }}
-          onClick={()=>handlePlay(item.id)}
+          onClick={() => handlePlay(item.id)}
           onMouseOver={() => setMouseOver(item.id)}
           onMouseOut={() => setMouseOver("")}
         >

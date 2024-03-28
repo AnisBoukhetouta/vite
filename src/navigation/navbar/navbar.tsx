@@ -12,7 +12,7 @@ const navbar = (props) => {
     <Container maxWidth="sm">
       <header className={classes.navbar}>
         <Navlink link="/">
-          <h1>Logo</h1>
+          <h1>LexSCHOOL</h1>
         </Navlink>
 
         <nav className={classes.links}>

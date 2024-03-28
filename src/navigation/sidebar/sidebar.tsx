@@ -17,7 +17,7 @@ const sidebar = (props) => {
       <Backdrop show={props.open} clicked={props.closed} />
       <div className={attachedClasses.join(" ")} onClick={props.closed}>
         <nav>
-          <Navlinks/>
+          <Navlinks />
         </nav>
       </div>
     </Container>

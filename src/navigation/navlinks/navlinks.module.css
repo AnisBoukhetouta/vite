@@ -1,15 +1,14 @@
-.navlinks{
-    display: flex;
-    flex-flow: row;
-    gap: var(--padding-1);
-    padding: var(--padding-1);
-    list-style: none;
+.navlinks {
+  display: flex;
+  flex-flow: row;
+  gap: var(--padding-1);
+  padding: var(--padding-1);
+  list-style: none;
 }
 
-
-@media (max-width: 40em){
-    .navlinks{
-        display: flex;
-        flex-flow: column;
-    }
+@media (max-width: 40em) {
+  .navlinks {
+    display: flex;
+    flex-flow: column;
+  }
 }

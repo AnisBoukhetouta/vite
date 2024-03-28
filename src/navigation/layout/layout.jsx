@@ -21,10 +21,13 @@ class layout extends Component {
   render() {
     return (
       <div className={classes.content}>
-        <Navbar toggleSidebar={this.toggleSidebarHandler}/>
-        <Sidebar open={this.state.showSidebar} closed={this.sidebarClosedHandler}/>
+        <Navbar toggleSidebar={this.toggleSidebarHandler} />
+        <Sidebar
+          open={this.state.showSidebar}
+          closed={this.sidebarClosedHandler}
+        />
         <div className={classes.mainContent}>{this.props.children}</div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }

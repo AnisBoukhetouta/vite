@@ -1,7 +1,7 @@
-import React from 'react'
-import classes from "./navlinks.module.css"
+import React from "react";
+import classes from "./navlinks.module.css";
 
-import Navlink from "../navlink/navlink"
+import Navlink from "../navlink/navlink";
 
 const navlinks = () => {
   return (
@@ -10,9 +10,10 @@ const navlinks = () => {
         <Navlink link="/">Home</Navlink>
         <Navlink link="/auth">Auth</Navlink>
         <Navlink link="/gamelobby">GameLobby</Navlink>
+        <Navlink link="/upload">Upload</Navlink>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default navlinks
+export default navlinks;
