@@ -54,27 +54,34 @@ export default function Upload() {
 
   const registerHandler = async (values, { setSubmitting }) => {
     console.log(values);
-    const Data = {
-      gameTitle: values.gameTitle,
-      category: values.category,
-      tags: values.tags,
-      description: values.description,
-      controls: values.controls,
-      googlePlay: values.googlePlay,
-      iOsApp: values.iOsApp,
-      steamLink: values.steamLink,
-      gameType: values.gameType,
-      fileUpload: values.fileUpload,
-      landscapeFile: values.landscapeFile,
-      portraitFile: values.portraitFile,
-      squareFile: values.squareFile,
-    };
+    const formData = new FormData();
+    formData.append("gameTitle", values.gameTitle);
+    formData.append("category", values.category);
+    formData.append("tags", values.tags);
+    formData.append("description", values.description);
+    formData.append("controls", values.controls);
+    formData.append("googlePlay", values.googlePlay);
+    formData.append("iOsApp", values.iOsApp);
+    formData.append("steamLink", values.steamLink);
+    formData.append("gameType", values.gameType);
+    formData.append("fileUpload", values.fileUpload);
+    formData.append("landscapeFile", values.landscapeFile);
+    formData.append("portraitFile", values.portraitFile);
+    formData.append("squareFile", values.squareFile);
     try {
-      const response = await axios.post("UploadGame", Data);
+      const response = await axios.post(
+        "http://localhost:5000/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       console.log(response.data);
       setSubmitting(false);
     } catch (e) {
-      console.log(e);
+      console.log("Error submitting form:", e);
     }
   };
 
