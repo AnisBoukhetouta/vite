@@ -13,7 +13,10 @@ import {
 } from "@mui/material";
 import AppConstants from "../../AppConstants";
 import { CloudUpload } from "@mui/icons-material";
+<<<<<<< HEAD
 import axios from "axios";
+=======
+>>>>>>> origin/upload/form
 
 const initialValues = {
   gameTitle: "",
