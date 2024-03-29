@@ -14,6 +14,7 @@ const footer = () => {
           <Navlink link="/auth">Auth</Navlink>
           <Navlink link="/gamelobby">GameLobby</Navlink>
           <Navlink link="/upload">Upload</Navlink>
+          <Navlink link="/playground">Playground</Navlink>
         </div>
         <div className={classes.rights}>
           <p>@ {CURRENT_YEAR} All Rights Reserved</p>

@@ -11,6 +11,7 @@ import Auth from "./pages/auth/auth";
 import Layout from "./navigation/layout/layout";
 import GameLobby from "./pages/gameLobby/gameLobby";
 import Upload from "./pages/upload/upload";
+import Playground from "./pages/playground/playground";
 
 const App = () => {
   let routes = (
@@ -19,6 +20,7 @@ const App = () => {
       <Route path="/auth" element={<Auth />} />
       <Route path="/gamelobby" element={<GameLobby />} />
       <Route path="/upload" element={<Upload />} />
+      <Route path="/playground" element={<Playground />} />
     </Routes>
   );
 
