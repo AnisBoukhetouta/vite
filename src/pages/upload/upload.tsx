@@ -13,10 +13,7 @@ import {
 } from "@mui/material";
 import AppConstants from "../../AppConstants";
 import { CloudUpload } from "@mui/icons-material";
-<<<<<<< HEAD
 import axios from "axios";
-=======
->>>>>>> origin/upload/form
 
 const initialValues = {
   gameTitle: "",
@@ -55,6 +52,32 @@ export default function Upload() {
   const [portraitFile, setPortraitFile] = React.useState<File | null>(null);
   const [squareFile, setSquareFile] = React.useState<File | null>(null);
 
+  const registerHandler = async (values, { setSubmitting }) => {
+    console.log(values);
+    const Data = {
+      gameTitle: values.gameTitle,
+      category: values.category,
+      tags: values.tags,
+      description: values.description,
+      controls: values.controls,
+      googlePlay: values.googlePlay,
+      iOsApp: values.iOsApp,
+      steamLink: values.steamLink,
+      gameType: values.gameType,
+      fileUpload: values.fileUpload,
+      landscapeFile: values.landscapeFile,
+      portraitFile: values.portraitFile,
+      squareFile: values.squareFile,
+    };
+    try {
+      const response = await axios.post("UploadGame", Data);
+      console.log(response.data);
+      setSubmitting(false);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <Formik
       initialValues={{
@@ -65,33 +88,7 @@ export default function Upload() {
         squareFile,
       }}
       validationSchema={validationSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        // Handle form submission
-        console.log(values);
-        // alert(JSON.stringify(values));
-        const registerHandler = async () => {
-          const Data = {
-            gameTitle: values.gameTitle,
-            category: values.category,
-            tags: values.tags,
-            description: values.description,
-            controls: values.controls,
-            googlePlay: values.googlePlay,
-            iOsApp: values.iOsApp,
-            steamLink: values.steamLink,
-            gameType: values.gameType,
-            fileUpload: values.fileUpload,
-            landscapeFile: values.landscapeFile,
-            portraitFile: values.portraitFile,
-            squareFile: values.squareFile,
-          }
-          try {
-            const response = await axios.post('UploadGame', Data);
-            console.log(response.data);
-          }
-        }
-        setSubmitting(false);
-      }}
+      onSubmit={registerHandler}
     >
       {(formik) => (
         <Form>
