@@ -19,6 +19,13 @@ const AppConstants = {
 
   tags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4", "Tag 5", "Tag 6"],
 
+  unityConfig: {
+    loaderUrl: "Build/public.loader.js",
+    dataUrl: "Build/public.data",
+    frameworkUrl: "Build/public.framework.js",
+    codeUrl: "Build/public.wasm",
+  },
+
   cardData: [
     {
       id: "0",

@@ -12,6 +12,10 @@
   padding: var(--padding-1);
   background-color: var(--dark);
 }
+.logo {
+  width: 150px;
+  height: 150px;
+}
 
 @media (max-width: 40em) {
   .links {

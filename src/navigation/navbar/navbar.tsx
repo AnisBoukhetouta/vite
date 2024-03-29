@@ -11,6 +11,13 @@ const navbar = (props) => {
   return (
     <Container maxWidth="sm">
       <header className={classes.navbar}>
+        <a href="/">
+          <img
+            className={classes.logo}
+            src="src/public/images/logo.svg"
+            alt="logo"
+          />
+        </a>
         <Navlink link="/">
           <h1>LexSCHOOL</h1>
         </Navlink>
