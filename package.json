@@ -15,6 +15,7 @@
     "@fontsource/bebas-neue": "^5.0.14",
     "@fontsource/dela-gothic-one": "^5.0.13",
     "@fontsource/roboto": "^5.0.8",
+    "@mantine/carousel": "^7.7.1",
     "@mantine/core": "^7.7.1",
     "@mantine/hooks": "^7.7.1",
     "@mui/icons-material": "^5.15.14",
