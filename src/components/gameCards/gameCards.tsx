@@ -5,7 +5,7 @@ import GameCard from "./gameCard";
 export default function GameCards({ cardData }) {
 
   return (
-    <Grid container direction="row" justifyContent="center" alignItems="center">
+    <Grid container direction="row" justifyContent="center" alignItems="center" sx={{mt:10}}>
       {cardData.map((item) => (
         <GameCard item={item} />
       ))}

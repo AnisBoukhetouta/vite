@@ -1,5 +1,4 @@
 .modelBox {
   height: 100vh !important;
-  position: absolute;
-  background: url("/images/home/10302.jpg") no-repeat fixed center;
+  position: relative;
 }

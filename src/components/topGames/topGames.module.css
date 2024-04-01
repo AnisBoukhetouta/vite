@@ -1,0 +1,10 @@
+.topGames {
+  width: 90vw;
+  position: absolute;
+  bottom: 1rem;
+  left: 4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  display: flex;
+  /* flex-wrap: wrap; */
+}

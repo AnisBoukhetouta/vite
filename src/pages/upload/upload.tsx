@@ -89,7 +89,8 @@ export default function Upload() {
   return (
     <Container
       style={{
-        paddingTop: "4rem",
+        paddingTop: "8rem",
+        color: "rgb(237, 237, 237)",
       }}
     >
       <Formik
@@ -105,8 +106,15 @@ export default function Upload() {
       >
         {(formik) => (
           <Form>
-            <h1>Submit Game</h1>
-            <Paper sx={{ marginTop: 3, padding: 5 }}>
+            <h1>Submit Game</h1>{" "}
+            <Paper
+              sx={{
+                marginTop: 3,
+                padding: 5,
+                backgroundColor: "rgba(54, 52, 52, 0.744)",
+                color: "rgb(202, 196, 196)",
+              }}
+            >
               <h2>Game details</h2>
               <Stack spacing={5}>
                 <Box>
@@ -119,7 +127,6 @@ export default function Upload() {
                     value={formik.values.gameTitle}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    inputProps={{ style: { color: "var(--light)" } }}
                     error={
                       formik.touched.gameTitle &&
                       Boolean(formik.errors.gameTitle)
@@ -186,6 +193,8 @@ export default function Upload() {
                     margin: 0,
                     height: 200,
                     backgroundColor: "#00000000",
+                    color: "rgb(202, 196, 196)",
+                    border: "1px solid white",
                     padding: 5,
                   }}
                 />
@@ -199,6 +208,8 @@ export default function Upload() {
                     margin: 0,
                     height: 200,
                     backgroundColor: "#00000000",
+                    color: "rgb(202, 196, 196)",
+                    border: "1px solid white",
                     padding: 5,
                   }}
                 />
@@ -211,7 +222,6 @@ export default function Upload() {
                       value={formik.values.googlePlay}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      inputProps={{ style: { color: "var(--light)" } }}
                       error={
                         formik.touched.googlePlay &&
                         Boolean(formik.errors.googlePlay)
@@ -229,7 +239,6 @@ export default function Upload() {
                       value={formik.values.iOsApp}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      inputProps={{ style: { color: "var(--light)" } }}
                       error={
                         formik.touched.iOsApp && Boolean(formik.errors.iOsApp)
                       }
@@ -244,7 +253,6 @@ export default function Upload() {
                       value={formik.values.steamLink}
                       onChange={formik.handleChange}
                       onBlur={formik.handleBlur}
-                      inputProps={{ style: { color: "var(--light)" } }}
                       error={
                         formik.touched.steamLink &&
                         Boolean(formik.errors.steamLink)
@@ -258,7 +266,14 @@ export default function Upload() {
                 </Stack>
               </Stack>
             </Paper>
-            <Paper sx={{ marginTop: 3, padding: 5 }}>
+            <Paper
+              sx={{
+                marginTop: 3,
+                padding: 5,
+                backgroundColor: "rgba(54, 52, 52, 0.744)",
+                color: "rgb(202, 196, 196)",
+              }}
+            >
               <h2>Game Type</h2>
               <Box>
                 <Typography>Game Type *</Typography>
@@ -286,7 +301,14 @@ export default function Upload() {
                 />
               </Box>
             </Paper>
-            <Paper sx={{ marginTop: 3, padding: 5 }}>
+            <Paper
+              sx={{
+                marginTop: 3,
+                padding: 5,
+                backgroundColor: "rgba(54, 52, 52, 0.744)",
+                color: "rgb(202, 196, 196)",
+              }}
+            >
               <h2>Files *</h2>
               <div>
                 <Typography>File Upload *</Typography>

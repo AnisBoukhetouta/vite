@@ -1,6 +1,6 @@
 import React from "react";
 import Loader from "../../navigation/loader/loader";
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
 import { Unity, useUnityContext } from "react-unity-webgl";
 import AppConstants from "../../AppConstants";
 import useInterval from "../../hooks/useInterval";
@@ -50,7 +50,7 @@ export default function Playground() {
         sx={{
           flexGrow: 1,
           py: 4,
-          background: 'url("/images/home/10303.jpg") no-repeat fixed center',
+          background: "#101014",
           height: "100vh",
         }}
       >
@@ -73,9 +73,13 @@ export default function Playground() {
                 }}
               />
               {!isLoaded && (
-                <div className="unity-loader">
-                  <div>Loading... {loadingPercent.toFixed(2)}%</div>
-                </div>
+                <Typography
+                  variant="subtitle1"
+                  gutterBottom
+                  sx={{ color: "white" }}
+                >
+                  Loading... {loadingPercent.toFixed(2)}%
+                </Typography>
               )}
             </div>
             {/* </Grid> */}
