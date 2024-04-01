@@ -1,12 +1,14 @@
 import React from "react";
 import AppConstants from "../../AppConstants";
-import GameCard from "../../components/gameCard/card";
+import GameCards from "../../components/gameCards/gameCards";
 import classes from "./gameLobby.module.css";
+import LobbyHeader from "../../components/lobbyHeader/lobbyHeader";
 
 export default function GameLobby() {
   return (
     <div className={classes.gameLobbyContainer}>
-      <GameCard cardData={AppConstants.cardData} />
+      <LobbyHeader />
+      <GameCards cardData={AppConstants.cardData} />
     </div>
   );
 }
