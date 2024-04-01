@@ -1,0 +1,5 @@
+.modelBox {
+  height: 100vh !important;
+  position: absolute;
+  background: lightblue url("src/public/images/home/10302.jpg") no-repeat fixed center;
+}

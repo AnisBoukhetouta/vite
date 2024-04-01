@@ -1,20 +1,25 @@
-.navbar{
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 200;
-    height: 7rem;
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
-    padding: var(--padding-1);
-    background-color: var(--dark);
+.navbar {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  height: 6rem;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  padding: var(--padding-1);
+  background-color: var(--transparent);
+}
+.logo {
+  width: 150px;
+  height: 150px;
 }
 
 @media (max-width: 40em) {
-    .links{
-        display: none;
-    }
+  .links {
+    display: none;
+  }
 }

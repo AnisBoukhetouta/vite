@@ -1,18 +1,28 @@
-:root{
-    --dark: #393E41;
-    --light: #F6F7EB;
-    --accent: #F97432;
-    --shadow: #00000080;
-    
-    --container-1-width: 100ch;
-    --padding-1: 1em;
+:root {
+  --dark: #393e41;
+  --light: #f6f7eb;
+  --accent: #f97432;
+  --shadow: #00000080;
+  --black: #000000ff;
+  --transparent: #00000000;
+
+  --container-1-width: 100ch;
+  --padding-1: 1em;
+  --padding-2: 2em;
+  --padding-3: 3em;
+  --padding-4: 4em;
+  --padding-5: 5em;
+  --padding-8: 8em;
 }
 
-*{
-    margin: 0;
-    padding: 0;
-    text-wrap: balance;
-    box-sizing: border-box;
-    /* font-family: 'Dela Gothic One', sans-serif; */
-    font-family: 'Bebas Neue', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  text-wrap: balance;
+  box-sizing: border-box;
+  position: relative;
+  /* font-family: 'Dela Gothic One', sans-serif; */
+  font-family: "Bebas Neue", sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* background: url("src/public/images/home/10302.jpg") no-repeat fixed center; */
 }
