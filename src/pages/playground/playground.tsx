@@ -10,33 +10,33 @@ export default function Playground() {
   const unityContext = useUnityContext(AppConstants.unityConfig);
   const { isLoaded, sendMessage } = unityContext;
 
-//   useInterval(async () => {
-//     try {
-//       if (!isLoaded) {
-//         return;
-//       }
+  //   useInterval(async () => {
+  //     try {
+  //       if (!isLoaded) {
+  //         return;
+  //       }
 
-//       const game = await getGameState();
-//       if (game.race) {
-//         setRace(game.race);
-//         const updatedState = game.race.status;
-//         if (updatedState) {
-//           if (
-//             race.status === RaceState.Ready &&
-//             updatedState === RaceState.Started
-//           ) {
-//             sendMessage("GameController", "StartRaceNow", 45);
-//           }
-//         }
-//       }
-//       if (address && game.tickets) {
-//         const tickets = game.tickets.filter((t) => t.address === address);
-//         dispatch(updateTickets(tickets));
-//       }
-//     } catch (err) {
-//       console.error(err);
-//     }
-//   }, 2000);
+  //       const game = await getGameState();
+  //       if (game.race) {
+  //         setRace(game.race);
+  //         const updatedState = game.race.status;
+  //         if (updatedState) {
+  //           if (
+  //             race.status === RaceState.Ready &&
+  //             updatedState === RaceState.Started
+  //           ) {
+  //             sendMessage("GameController", "StartRaceNow", 45);
+  //           }
+  //         }
+  //       }
+  //       if (address && game.tickets) {
+  //         const tickets = game.tickets.filter((t) => t.address === address);
+  //         dispatch(updateTickets(tickets));
+  //       }
+  //     } catch (err) {
+  //       console.error(err);
+  //     }
+  //   }, 2000);
 
   useInterval(() => {
     setLoadingPercent((value) => (value <= 99 ? value + Math.random() : value));
@@ -52,7 +52,12 @@ export default function Playground() {
           py: 4,
         }}
       >
-        <Container maxWidth="lg">
+        <Container
+          maxWidth="lg"
+          style={{
+            paddingTop: "6rem",
+          }}
+        >
           <Box>
             {/* <Grid container spacing={0.5}> */}
             {/* <Grid item sm={10} xs={12}> */}
@@ -60,8 +65,8 @@ export default function Playground() {
               <Unity
                 unityProvider={unityContext.unityProvider}
                 style={{
-                  height: '100%',
-                  width: '100%',
+                  height: "100%",
+                  width: "100%",
                   background: "#555",
                 }}
               />
