@@ -27,7 +27,7 @@ class layout extends Component {
           closed={this.sidebarClosedHandler}
         />
         <div className={classes.mainContent}>{this.props.children}</div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }

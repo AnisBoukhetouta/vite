@@ -2,7 +2,6 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import Model from "./model";
 import classes from "./modelBox.module.css";
-import Interface from "../interface";
 
 export default function ModelBox() {
   return (
@@ -14,7 +13,6 @@ export default function ModelBox() {
       >
         <Model />
       </Canvas>
-      <Interface />
     </>
   );
 }
