@@ -25,7 +25,14 @@
   /* font-family: "Bebas Neue", sans-serif; */
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: var(--light);
-  background: url("src/public/images/home/10302.jpg") no-repeat fixed center;
+  background: url("images/home/10302.jpg") no-repeat fixed center;
   box-sizing: border-box;
 }
 
+.MuiFormControl-root {
+  border: 1px solid var(--light) !important;
+}
+
+.MuiInputBase-input {
+  color: var(--light) !important;
+}

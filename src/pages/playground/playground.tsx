@@ -53,7 +53,7 @@ export default function Playground() {
         }}
       >
         <Container
-          maxWidth="lg"
+          maxWidth="xl"
           style={{
             paddingTop: "6rem",
           }}

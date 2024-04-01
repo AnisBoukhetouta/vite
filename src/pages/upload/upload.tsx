@@ -273,7 +273,6 @@ export default function Upload() {
                       name="gameType"
                       value={formik.values.gameType}
                       onBlur={formik.handleBlur}
-                      inputProps={{ style: { color: "var(--light)" } }}
                       error={
                         formik.touched.gameType &&
                         Boolean(formik.errors.gameType)

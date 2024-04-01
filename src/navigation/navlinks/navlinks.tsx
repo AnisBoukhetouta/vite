@@ -8,7 +8,7 @@ const navlinks = () => {
     <div>
       <ul className={classes.navlinks}>
         <Navlink link="/">
-          <h1>LexSCHOOL</h1>
+          <h1 style={{color: "var(--accent)"}}>LexSCHOOL</h1>
         </Navlink>
         <Navlink link="/">Home</Navlink>
         <Navlink link="/auth">Auth</Navlink>
