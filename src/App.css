@@ -4,7 +4,7 @@
   --accent: #f97432;
   --shadow: #00000080;
   --black: #000000ff;
-  --transparent: #00000000;
+  --transparent: #18181c8e;
 
   --container-1-width: 100ch;
   --padding-1: 1em;
@@ -25,7 +25,7 @@
   /* font-family: "Bebas Neue", sans-serif; */
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: var(--light);
-  background: url("/images/home/10302.jpg") no-repeat fixed center;
+  /* background: url("/images/home/10302.jpg") no-repeat fixed center; */
   box-sizing: border-box;
 }
 
