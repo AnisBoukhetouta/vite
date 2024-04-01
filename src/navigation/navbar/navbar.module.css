@@ -4,11 +4,11 @@
   top: 0;
   left: 0;
   z-index: 200;
-  height: 6rem;
+  height: 4rem;
   display: flex;
   flex-flow: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: start;
   list-style: none;
   padding: var(--padding-1);
   background-color: var(--transparent);

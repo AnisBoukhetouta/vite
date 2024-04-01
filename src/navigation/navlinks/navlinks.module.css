@@ -2,9 +2,9 @@
   display: flex;
   flex-flow: row;
   align-items: center;
-  gap: var(--padding-8);
+  gap: var(--padding-1);
   padding: var(--padding-1);
-  font-size: x-large;
+  font-size: large;
   list-style: none;
 }
 

@@ -55,7 +55,7 @@ export default function Playground() {
         <Container
           maxWidth="xl"
           style={{
-            paddingTop: "6rem",
+            paddingTop: "4rem",
           }}
         >
           <Box>

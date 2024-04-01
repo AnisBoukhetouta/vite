@@ -89,7 +89,7 @@ export default function Upload() {
   return (
     <Container
       style={{
-        paddingTop: "6rem",
+        paddingTop: "4rem",
       }}
     >
       <Formik

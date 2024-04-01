@@ -7,7 +7,7 @@ const auth = () => {
     <Container
       maxWidth="sm"
       style={{
-        paddingTop: "6rem",
+        paddingTop: "4rem",
       }}
     >
       auth
