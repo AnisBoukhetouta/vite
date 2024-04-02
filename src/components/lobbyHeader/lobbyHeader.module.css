@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +18,19 @@
 }
 .image {
   position: relative;
-  width: 87vw;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  width: 90vw;
   height: 70vh;
+}
+.lobbyHearder {
+  position: absolute;
+  top: 30vh;
+  left: 10vw;
+  z-index: 10;
+  width: 400px;
+  height: 100px;
+}
+.colr {
+  color: rgb(206, 205, 202);
 }

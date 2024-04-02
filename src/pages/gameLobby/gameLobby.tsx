@@ -3,12 +3,14 @@ import AppConstants from "../../AppConstants";
 import GameCards from "../../components/gameCards/gameCards";
 import classes from "./gameLobby.module.css";
 import LobbyHeader from "../../components/lobbyHeader/lobbyHeader";
+import LobbyHeaderGame from "../../components/lobbyHeaderGame/lobbyHeaderGame";
 
 export default function GameLobby() {
   return (
     <div className={classes.gameLobbyContainer}>
       <LobbyHeader />
-      <GameCards cardData={AppConstants.cardData} />
+      {/* <GameCards cardData={AppConstants.cardData} /> */}
+      <LobbyHeaderGame />
     </div>
   );
 }

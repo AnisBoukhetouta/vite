@@ -13,9 +13,6 @@ export default function TopGames() {
           <GameCard key={item.id} item={item} />
         ))}
       />
-      {/* {AppConstants.cardData.map((item) => (
-          <GameCard key={item.id} item={item} />
-        ))} */}
     </div>
   );
 }

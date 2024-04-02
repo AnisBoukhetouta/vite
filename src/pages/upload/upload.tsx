@@ -124,6 +124,7 @@ export default function Upload() {
                     variant="outlined"
                     sx={{ width: 500 }}
                     id="gameTitle"
+                    required
                     value={formik.values.gameTitle}
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
@@ -147,6 +148,7 @@ export default function Upload() {
                     renderInput={(params) => (
                       <TextField
                         name="category"
+                        required
                         value={formik.values.category}
                         onBlur={formik.handleBlur}
                         error={
@@ -172,6 +174,7 @@ export default function Upload() {
                     renderInput={(params) => (
                       <TextField
                         name="tags"
+                        required
                         value={formik.values.tags}
                         onBlur={formik.handleBlur}
                         error={
@@ -186,6 +189,7 @@ export default function Upload() {
                 <Typography>Description *</Typography>
                 <TextareaAutosize
                   name="description"
+                  required
                   value={formik.values.description}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -201,6 +205,7 @@ export default function Upload() {
                 <Typography>Controls *</Typography>
                 <TextareaAutosize
                   name="controls"
+                  required
                   value={formik.values.controls}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -286,6 +291,7 @@ export default function Upload() {
                   renderInput={(params) => (
                     <TextField
                       name="gameType"
+                      required
                       value={formik.values.gameType}
                       onBlur={formik.handleBlur}
                       error={
@@ -323,7 +329,9 @@ export default function Upload() {
                 >
                   <input
                     name="fileUpload"
+                    multiple={true}
                     type="file"
+                    required
                     style={{ display: "none" }}
                     onChange={(event) => {
                       if (event.currentTarget.files?.length) {
@@ -353,6 +361,7 @@ export default function Upload() {
                     <input
                       name="landscapeFile"
                       type="file"
+                      required
                       style={{ display: "none" }}
                       onChange={(event) => {
                         if (event.currentTarget?.files?.length) {
@@ -380,6 +389,7 @@ export default function Upload() {
                     <input
                       name="portraitFile"
                       type="file"
+                      required
                       style={{ display: "none" }}
                       onChange={(event) => {
                         if (event.currentTarget.files?.length) {
@@ -407,6 +417,7 @@ export default function Upload() {
                     <input
                       name="squareFile"
                       type="file"
+                      required
                       style={{ display: "none" }}
                       onChange={(event) => {
                         if (event.currentTarget.files?.length) {

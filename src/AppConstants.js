@@ -30,82 +30,82 @@ const AppConstants = {
     {
       id: "0",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn-0001.qstv.on.epicgames.com/wrFMxMIhtneRJTusXO/image/landscape_comp_s.jpeg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn2.unrealengine.com/fncs-global-championship-2024-thumbnail-576x576-1c03b3ffb56c.jpg",
     },
     {
       id: "1",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn-0001.qstv.on.epicgames.com/jXjgsZMXchZjOeBqnu/image/landscape_comp_s.jpeg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn2.unrealengine.com/fortnite-masamune-thumbnail-576x576-b1dd7e5b37f1.jpg",
     },
     {
       id: "2",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn-0001.qstv.on.epicgames.com/jaVzxkfQPZPaogEjpO/image/landscape_comp_s.jpeg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn2.unrealengine.com/lego-fortnite-mechanical-mayhem-thumbnail-576x576-83f5c7dc749b.jpg",
     },
     {
       id: "3",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn-0001.qstv.on.epicgames.com/BEDZdWAMdqRZhPDWHn/image/landscape_comp_s.jpeg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn2.unrealengine.com/fortnite-island-creator-rules-thumbnail-576x576-d22334489b3d.jpg",
     },
     {
       id: "4",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn-0001.qstv.on.epicgames.com/jXjgsZMXchZjOeBqnu/image/landscape_comp_s.jpeg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn2.unrealengine.com/fortnite-rise-of-midas-thumbnail-576x576-c8c5b1d4eaab.jpg",
     },
     {
       id: "5",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn-0001.qstv.on.epicgames.com/BEDZdWAMdqRZhPDWHn/image/landscape_comp_s.jpeg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn-0001.qstv.on.epicgames.com/AgaQbdsOzEgnfeoEOv/image/landscape_comp_s.jpeg",
     },
     {
       id: "6",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn2.unrealengine.com/fortnite-masamune-thumbnail-576x576-b1dd7e5b37f1.jpg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn-0001.qstv.on.epicgames.com/BEDZdWAMdqRZhPDWHn/image/landscape_comp_s.jpeg",
     },
     {
       id: "7",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn2.unrealengine.com/fncs-global-championship-2024-thumbnail-576x576-1c03b3ffb56c.jpg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn-0001.qstv.on.epicgames.com/jaVzxkfQPZPaogEjpO/image/landscape_comp_s.jpeg",
     },
     {
       id: "8",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn-0001.qstv.on.epicgames.com/AgaQbdsOzEgnfeoEOv/image/landscape_comp_s.jpeg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn-0001.qstv.on.epicgames.com/jXjgsZMXchZjOeBqnu/image/landscape_comp_s.jpeg",
     },
     {
       id: "9",
       imageOut:
-        "https://ipfs.io/ipfs/QmYh11MqXXwiouftCjnszXiUxo6SJ5HSTJ2ewgcCC8rUes",
+        "https://cdn2.unrealengine.com/fortnite-rise-of-midas-thumbnail-576x576-c8c5b1d4eaab.jpg",
 
       imageOver:
-        "https://img.poki.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/2bc8004fcbb4387908a636e2a9d9ab4a.png",
+        "https://cdn-0001.qstv.on.epicgames.com/wrFMxMIhtneRJTusXO/image/landscape_comp_s.jpeg",
     },
   ],
 };

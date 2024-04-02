@@ -1,0 +1,10 @@
+.topGames {
+  width: 91vw;
+  overflow-x: auto;
+  scrollbar-width: none;
+  display: flex;
+}
+
+.lobodyGame {
+  margin: 4rem;
+}
