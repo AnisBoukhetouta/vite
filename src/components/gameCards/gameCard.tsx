@@ -2,11 +2,21 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import classes from "./card.module.css";
 
-export default function GameCard({ item }) {
+interface Props {
+  onSetItem?: (e: any) => void;
+  item: any;
+}
+
+export default function GameCard({ item, onSetItem }: Props) {
   const [mouseOver, setMouseOver] = React.useState("");
 
   const handlePlay = (key) => {
     console.log("play clicked", key);
+  };
+
+  const onMouseOver = (item) => {
+    setMouseOver(item.id);
+    onSetItem && onSetItem(item);
   };
 
   return (
@@ -21,7 +31,7 @@ export default function GameCard({ item }) {
         m: 2,
       }}
       onClick={() => handlePlay(item.id)}
-      onMouseOver={() => setMouseOver(item.id)}
+      onMouseOver={() => onMouseOver(item)}
       onMouseOut={() => setMouseOver("")}
     >
       <img
@@ -32,4 +42,3 @@ export default function GameCard({ item }) {
     </Card>
   );
 }
-

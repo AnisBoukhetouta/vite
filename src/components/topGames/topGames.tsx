@@ -5,12 +5,16 @@ import GameCard from "../gameCards/gameCard";
 import ScrollCarousel from "scroll-carousel-react";
 import { Carousel, ScrollingCarousel } from "@trendyol-js/react-carousel";
 
-export default function TopGames() {
+interface Props {
+  setItem: (e: any) => void;
+}
+
+export default function TopGames({setItem} : Props) {
   return (
     <div className={classes.topGames}>
       <ScrollingCarousel
         children={AppConstants.cardData.map((item) => (
-          <GameCard key={item.id} item={item} />
+          <GameCard onSetItem={setItem} key={item.id} item={item} />
         ))}
       />
     </div>

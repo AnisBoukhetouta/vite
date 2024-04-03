@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import {
@@ -15,6 +15,7 @@ import {
 import AppConstants from "../../AppConstants";
 import { CloudUpload } from "@mui/icons-material";
 import axios from "axios";
+import FileUpload from "../../components/fileUpload/fileUpload";
 
 const initialValues = {
   gameTitle: "",
@@ -26,7 +27,7 @@ const initialValues = {
   iOsApp: "",
   steamLink: "",
   gameType: "",
-  fileUpload: null,
+  fileUpload: [],
   landscapeFile: null,
   portraitFile: null,
   squareFile: null,
@@ -48,10 +49,14 @@ const validationSchema = Yup.object().shape({
   // squareFile: Yup.mixed().required("squareFile is required"),
 });
 export default function Upload() {
-  const [fileUpload, setFileUpload] = React.useState<File | null>(null);
+  const [fileUpload, setFileUpload] = React.useState<File[]>([]);
   const [landscapeFile, setLandscapeFile] = React.useState<File | null>(null);
   const [portraitFile, setPortraitFile] = React.useState<File | null>(null);
   const [squareFile, setSquareFile] = React.useState<File | null>(null);
+
+  useEffect(() => {
+    console.log("FileUpload state updated:", fileUpload);
+  }, [fileUpload]);
 
   const registerHandler = async (values, { setSubmitting }) => {
     console.log(values);
@@ -65,7 +70,11 @@ export default function Upload() {
     formData.append("iOsApp", values.iOsApp);
     formData.append("steamLink", values.steamLink);
     formData.append("gameType", values.gameType);
-    formData.append("fileUpload", values.fileUpload);
+    // formData.append("fileUpload", fileUpload[0]);
+    fileUpload.forEach((file, index) => {
+      formData.append(`fileUpload[${index}]`, file);
+      console.log('vvvvvvvv',file);
+    });
     formData.append("landscapeFile", values.landscapeFile);
     formData.append("portraitFile", values.portraitFile);
     formData.append("squareFile", values.squareFile);
@@ -318,7 +327,9 @@ export default function Upload() {
               <h2>Files *</h2>
               <div>
                 <Typography>File Upload *</Typography>
-                <Button
+                <FileUpload setFieldValue={setFileUpload} />
+
+                {/* <Button
                   component="label"
                   variant="outlined"
                   style={{
@@ -329,7 +340,6 @@ export default function Upload() {
                 >
                   <input
                     name="fileUpload"
-                    multiple={true}
                     type="file"
                     required
                     style={{ display: "none" }}
@@ -343,7 +353,7 @@ export default function Upload() {
                       }
                     }}
                   />
-                </Button>
+                </Button> */}
               </div>
               <h2 style={{ marginTop: 30 }}>Cover Images</h2>
               <Stack direction="row" sx={{ justifyContent: "space-between" }}>
