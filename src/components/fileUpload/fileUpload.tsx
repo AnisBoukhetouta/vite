@@ -23,29 +23,34 @@ registerPlugin(
 );
 
 interface Props {
+  height: number;
+  image?: boolean;
+  maxFiles?: number;
+  fieldName: string;
   setFieldValue: (value: any) => void;
 }
 
 // Our app
-export default function FileUpload({setFieldValue}: Props) {
+export default function FileUpload({
+  maxFiles,
+  image,
+  height,
+  fieldName,
+  setFieldValue,
+}: Props) {
   const handleFileUpload = (files) => {
-    console.log(files.map((file) => file.file));
     setFieldValue(files.map((file) => file.file))
   };
 
   return (
     <div className="App">
       <FilePond
-        required
-        acceptedFileTypes={["application/pdf", "image/*"]}
-        fileValidateTypeDetectType={(source, type) =>
-          new Promise((resolve, reject) => {
-            resolve(type);
-          })
-        }
+        acceptedFileTypes={image ? ["image/*"] : [""]}
+        // acceptedFileTypes={["application/pdf", "image/*"]}
+        // acceptedFileTypes={['application/octet-stream', 'application/javascript', 'application/wasm']}
         allowFileEncode
         allowImageTransform
-        imagePreviewHeight={400}
+        imagePreviewHeight={height}
         imageCropAspectRatio={"1:1"}
         imageResizeTargetWidth={100}
         imageResizeTargetHeight={100}
@@ -54,9 +59,9 @@ export default function FileUpload({setFieldValue}: Props) {
         imageTransformOutputQualityMode="optional"
         onupdatefiles={handleFileUpload}
         instantUpload={false}
-        allowMultiple={true}
-        maxFiles={4}
-        name="fileUpload"
+        allowMultiple={Number(maxFiles) > 1 ? true : false}
+        maxFiles={maxFiles}
+        name={fieldName}
         labelIdle='Drag & Drop your Game files or <span class="filepond--label-action">Browse</span>'
       />
     </div>

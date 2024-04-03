@@ -73,11 +73,10 @@ export default function Upload() {
     // formData.append("fileUpload", fileUpload[0]);
     fileUpload.forEach((file, index) => {
       formData.append(`fileUpload[${index}]`, file);
-      console.log('vvvvvvvv',file);
     });
-    formData.append("landscapeFile", values.landscapeFile);
-    formData.append("portraitFile", values.portraitFile);
-    formData.append("squareFile", values.squareFile);
+    landscapeFile && formData.append("landscapeFile", landscapeFile[0]);
+    portraitFile && formData.append("portraitFile", portraitFile);
+    squareFile && formData.append("squareFile", squareFile);
     try {
       const response = await axios.post(
         "http://localhost:5000/upload",
@@ -327,119 +326,41 @@ export default function Upload() {
               <h2>Files *</h2>
               <div>
                 <Typography>File Upload *</Typography>
-                <FileUpload setFieldValue={setFileUpload} />
-
-                {/* <Button
-                  component="label"
-                  variant="outlined"
-                  style={{
-                    width: "100%",
-                    height: 300,
-                  }}
-                  startIcon={<CloudUpload />}
-                >
-                  <input
-                    name="fileUpload"
-                    type="file"
-                    required
-                    style={{ display: "none" }}
-                    onChange={(event) => {
-                      if (event.currentTarget.files?.length) {
-                        formik.setFieldValue(
-                          "fileUpload",
-                          event.currentTarget.files[0]
-                        );
-                        setFileUpload(event.currentTarget.files[0]);
-                      }
-                    }}
-                  />
-                </Button> */}
+                <FileUpload
+                  fieldName="fileUpload"
+                  height={400}
+                  setFieldValue={setFileUpload}
+                  maxFiles={4}
+                />
               </div>
               <h2 style={{ marginTop: 30 }}>Cover Images</h2>
               <Stack direction="row" sx={{ justifyContent: "space-between" }}>
                 <div style={{ width: "45%" }}>
                   <Typography>Landscape 16:9 (1920x1080)</Typography>
-                  <Button
-                    component="label"
-                    variant="outlined"
-                    style={{
-                      width: "100%",
-                      height: "80%",
-                    }}
-                    startIcon={<CloudUpload />}
-                  >
-                    <input
-                      name="landscapeFile"
-                      type="file"
-                      required
-                      style={{ display: "none" }}
-                      onChange={(event) => {
-                        if (event.currentTarget?.files?.length) {
-                          formik.setFieldValue(
-                            "landscapeFile",
-                            event.currentTarget.files[0]
-                          );
-                          setLandscapeFile(event.currentTarget.files[0]);
-                        }
-                      }}
-                    />
-                  </Button>
+                  <FileUpload
+                    fieldName="landscapeFile"
+                    image
+                    height={280}
+                    setFieldValue={setLandscapeFile}
+                  />
                 </div>
                 <div style={{ width: "25%" }}>
                   <Typography>Portrait 2:3 (800x1200)</Typography>
-                  <Button
-                    component="label"
-                    variant="outlined"
-                    style={{
-                      width: "100%",
-                      height: 350,
-                    }}
-                    startIcon={<CloudUpload fontSize="large" />}
-                  >
-                    <input
-                      name="portraitFile"
-                      type="file"
-                      required
-                      style={{ display: "none" }}
-                      onChange={(event) => {
-                        if (event.currentTarget.files?.length) {
-                          formik.setFieldValue(
-                            "portraitFile",
-                            event.currentTarget.files[0]
-                          );
-                          setPortraitFile(event.currentTarget.files[0]);
-                        }
-                      }}
-                    />
-                  </Button>
+                  <FileUpload
+                    fieldName="portraitFile"
+                    image
+                    height={350}
+                    setFieldValue={setPortraitFile}
+                  />
                 </div>
                 <div style={{ width: "25%" }}>
                   <Typography>Square 1:1 (800x800)</Typography>
-                  <Button
-                    component="label"
-                    variant="outlined"
-                    style={{
-                      width: "100%",
-                      height: "70%",
-                    }}
-                    startIcon={<CloudUpload />}
-                  >
-                    <input
-                      name="squareFile"
-                      type="file"
-                      required
-                      style={{ display: "none" }}
-                      onChange={(event) => {
-                        if (event.currentTarget.files?.length) {
-                          formik.setFieldValue(
-                            "squareFile",
-                            event.currentTarget.files[0]
-                          );
-                          setSquareFile(event.currentTarget.files[0]);
-                        }
-                      }}
-                    />
-                  </Button>
+                  <FileUpload
+                    fieldName="squareFile"
+                    image
+                    height={200}
+                    setFieldValue={setSquareFile}
+                  />
                 </div>
               </Stack>
               <Stack direction="row" sx={{ justifyContent: "end" }}>
