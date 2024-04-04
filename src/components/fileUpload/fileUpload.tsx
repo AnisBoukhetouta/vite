@@ -24,29 +24,28 @@ registerPlugin(
 
 interface Props {
   height: number;
-  image?: boolean;
   maxFiles?: number;
   fieldName: string;
+  title: string;
   setFieldValue: (value: any) => void;
 }
 
 // Our app
 export default function FileUpload({
   maxFiles,
-  image,
   height,
+  title,
   fieldName,
   setFieldValue,
 }: Props) {
   const handleFileUpload = (files) => {
-    setFieldValue(files.map((file) => file.file))
+    setFieldValue(files.map((file) => file.file));
   };
 
   return (
     <div className="App">
       <FilePond
-        acceptedFileTypes={image ? ["image/*"] : [""]}
-        // acceptedFileTypes={["application/pdf", "image/*"]}
+        // acceptedFileTypes={image ? ["image/*"] : ["application/pdf", "image/*", ""]}
         // acceptedFileTypes={['application/octet-stream', 'application/javascript', 'application/wasm']}
         allowFileEncode
         allowImageTransform
@@ -62,7 +61,7 @@ export default function FileUpload({
         allowMultiple={Number(maxFiles) > 1 ? true : false}
         maxFiles={maxFiles}
         name={fieldName}
-        labelIdle='Drag & Drop your Game files or <span class="filepond--label-action">Browse</span>'
+        labelIdle={`Drag & Drop your ${title} or <span class="filepond--label-action">Browse</span>`}
       />
     </div>
   );

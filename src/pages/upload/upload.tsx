@@ -27,7 +27,6 @@ const initialValues = {
   iOsApp: "",
   steamLink: "",
   gameType: "",
-  fileUpload: [],
   landscapeFile: null,
   portraitFile: null,
   squareFile: null,
@@ -57,6 +56,9 @@ export default function Upload() {
   useEffect(() => {
     console.log("FileUpload state updated:", fileUpload);
   }, [fileUpload]);
+  useEffect(() => {
+    console.log("LandscapeFile state updated:", landscapeFile);
+  }, [landscapeFile]);
 
   const registerHandler = async (values, { setSubmitting }) => {
     console.log(values);
@@ -70,13 +72,12 @@ export default function Upload() {
     formData.append("iOsApp", values.iOsApp);
     formData.append("steamLink", values.steamLink);
     formData.append("gameType", values.gameType);
-    // formData.append("fileUpload", fileUpload[0]);
-    fileUpload.forEach((file, index) => {
-      formData.append(`fileUpload[${index}]`, file);
-    });
     landscapeFile && formData.append("landscapeFile", landscapeFile[0]);
-    portraitFile && formData.append("portraitFile", portraitFile);
-    squareFile && formData.append("squareFile", squareFile);
+    portraitFile && formData.append("portraitFile", portraitFile[0]);
+    squareFile && formData.append("squareFile", squareFile[0]);
+    fileUpload.map((file, index) => {
+      formData.append(`fileUpload${index}`, file);
+    });
     try {
       const response = await axios.post(
         "http://localhost:5000/upload",
@@ -327,6 +328,7 @@ export default function Upload() {
               <div>
                 <Typography>File Upload *</Typography>
                 <FileUpload
+                  title="Game files"
                   fieldName="fileUpload"
                   height={400}
                   setFieldValue={setFileUpload}
@@ -339,7 +341,7 @@ export default function Upload() {
                   <Typography>Landscape 16:9 (1920x1080)</Typography>
                   <FileUpload
                     fieldName="landscapeFile"
-                    image
+                    title="Landscape image file"
                     height={280}
                     setFieldValue={setLandscapeFile}
                   />
@@ -347,8 +349,8 @@ export default function Upload() {
                 <div style={{ width: "25%" }}>
                   <Typography>Portrait 2:3 (800x1200)</Typography>
                   <FileUpload
+                    title="Portrait image file"
                     fieldName="portraitFile"
-                    image
                     height={350}
                     setFieldValue={setPortraitFile}
                   />
@@ -356,8 +358,8 @@ export default function Upload() {
                 <div style={{ width: "25%" }}>
                   <Typography>Square 1:1 (800x800)</Typography>
                   <FileUpload
+                    title="Square image file"
                     fieldName="squareFile"
-                    image
                     height={200}
                     setFieldValue={setSquareFile}
                   />
