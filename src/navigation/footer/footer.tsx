@@ -11,7 +11,7 @@ const footer = () => {
       <footer className={classes.footer}>
         <div className={classes.links}>
           <Navlink link="/">Home</Navlink>
-          <Navlink link="/auth">Auth</Navlink>
+          <Navlink link="/test">Test</Navlink>
           <Navlink link="/gamelobby">GameLobby</Navlink>
           <Navlink link="/upload">Upload</Navlink>
           <Navlink link="/playground">Playground</Navlink>

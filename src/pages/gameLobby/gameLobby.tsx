@@ -9,7 +9,6 @@ export default function GameLobby() {
   return (
     <div className={classes.gameLobbyContainer}>
       <LobbyHeader />
-      {/* <GameCards cardData={AppConstants.cardData} /> */}
       <LobbyHeaderGame />
     </div>
   );

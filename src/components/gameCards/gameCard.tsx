@@ -8,37 +8,41 @@ interface Props {
 }
 
 export default function GameCard({ item, onSetItem }: Props) {
-  const [mouseOver, setMouseOver] = React.useState("");
+  const [mouseOver, setMouseOver] = React.useState(false);
 
   const handlePlay = (key) => {
     console.log("play clicked", key);
   };
 
-  const onMouseOver = (item) => {
-    setMouseOver(item.id);
+  const onMouseOver = (over: boolean) => {
+    setMouseOver(over);
     onSetItem && onSetItem(item);
   };
 
   return (
-    <Card
-      key={item.id}
-      sx={{
-        width: 180,
-        height: 130,
-        cursor: "pointer",
-        borderRadius: 5,
-        boxShadow: 10,
-        m: 2,
-      }}
-      onClick={() => handlePlay(item.id)}
-      onMouseOver={() => onMouseOver(item)}
-      onMouseOut={() => setMouseOver("")}
-    >
-      <img
-        src={mouseOver === item.id ? item.imageOut : item.imageOver}
-        alt="game"
-        className={classes.image}
-      />
-    </Card>
+    <div>
+      <Card
+        key={item._id}
+        sx={{
+          width: 180,
+          height: 130,
+          cursor: "pointer",
+          borderRadius: 5,
+          boxShadow: 10,
+          m: 2,
+        }}
+        className={mouseOver ? classes.card : classes.cardOut}
+        onClick={() => handlePlay(item._id)}
+        onMouseOver={() => onMouseOver(true)}
+        onMouseOut={() => onMouseOver(false)}
+      >
+        <img
+          src={!!mouseOver ? item.imageOver : item.imageOut}
+          alt="game"
+          className={classes.image}
+        />
+      </Card>
+      <h3 style={{ color: "white", textAlign: "center" }}>{item._id}</h3>
+    </div>
   );
 }

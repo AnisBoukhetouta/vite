@@ -1,11 +1,8 @@
 import React, { useEffect } from "react";
-import classes from "./lobbyHeaderGame.module.css";
-import AppConstants from "../../AppConstants";
-import { ScrollingCarousel } from "@trendyol-js/react-carousel";
-import GameLobbyCard from "../gameCards/gameLobbyCard";
-import { Container, Typography } from "@mui/material";
+import classes from "./test.module.css";
+import Container from "@mui/material/Container";
 import axios from "axios";
-import GameCards from "../gameCards/gameCards";
+import GameCards from "../../components/gameCards/gameCards";
 
 interface Item {
   _id: string;
@@ -13,7 +10,7 @@ interface Item {
   imageOver: string;
 }
 
-export interface Data {
+interface Data {
   _id: string;
   files: {
     category: string;
@@ -35,7 +32,7 @@ export interface Data {
   }[];
 }
 
-export default function LobbyHeaderGame() {
+const test = () => {
   const [fetchedData, setFetchedData] = React.useState<Data[]>([]);
   const items: Item[] = [];
 
@@ -65,20 +62,16 @@ export default function LobbyHeaderGame() {
   });
 
   return (
-    <div className={classes.lobodyGame}>
-      {/* <Typography variant="h4" gutterBottom sx={{ color: "white", ml: 2 }}>
-          BY EPIO
-        </Typography> */}
-      <div className={classes.topGames}>
-        {/* <ScrollingCarousel
-          children={AppConstants.cardData.map((item) => (
-            <GameLobbyCard key={item._id} item={item} />
-          ))}
-        /> */}
-        <Container maxWidth="lg" className={classes.lobbyCardsContainer}>
-          <GameCards cardData={items} />
-        </Container>
-      </div>
-    </div>
+    <Container
+      maxWidth="lg"
+      style={{
+        paddingTop: "4rem",
+      }}
+      className={classes.testContainer}
+    >
+      <GameCards cardData={items} />
+    </Container>
   );
-}
+};
+
+export default test;

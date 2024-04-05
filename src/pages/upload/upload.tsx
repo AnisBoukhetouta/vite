@@ -52,6 +52,7 @@ export default function Upload() {
   const [landscapeFile, setLandscapeFile] = React.useState<File | null>(null);
   const [portraitFile, setPortraitFile] = React.useState<File | null>(null);
   const [squareFile, setSquareFile] = React.useState<File | null>(null);
+  let uploadContainer: File[] = [];
 
   useEffect(() => {
     console.log("FileUpload state updated:", fileUpload);
@@ -76,6 +77,25 @@ export default function Upload() {
     portraitFile && formData.append("portraitFile", portraitFile[0]);
     squareFile && formData.append("squareFile", squareFile[0]);
     fileUpload.map((file, index) => {
+      // formData.append(`fileUpload${index}`, file);
+      const data = ".data";
+      const wasm = ".wasm";
+      const framework = ".framework";
+      const loader = ".loader";
+      if (file.name.includes(data)) {
+        uploadContainer[0] = file;
+      }
+      if (file.name.includes(wasm)) {
+        uploadContainer[1] = file;
+      }
+      if (file.name.includes(framework)) {
+        uploadContainer[2] = file;
+      }
+      if (file.name.includes(loader)) {
+        uploadContainer[3] = file;
+      }
+    });
+    uploadContainer.map((file, index) => {
       formData.append(`fileUpload${index}`, file);
     });
     try {
@@ -90,6 +110,7 @@ export default function Upload() {
       );
       console.log(response.data);
       setSubmitting(false);
+      window.location.replace("/gamelobby");
     } catch (e) {
       console.log("Error submitting form:", e);
     }

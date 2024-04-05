@@ -1,46 +1,67 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import Loader from "../../navigation/loader/loader";
 import { Box, Container, Grid, Typography } from "@mui/material";
-import { Unity, useUnityContext } from "react-unity-webgl";
-import AppConstants from "../../AppConstants";
+import { Unity, UnityConfig, useUnityContext } from "react-unity-webgl";
 import useInterval from "../../hooks/useInterval";
+import { useLocation } from "react-router";
+import { Data } from "../../components/lobbyHeaderGame/lobbyHeaderGame";
+import axios from "axios";
+
+const fetch = async (state) => {
+  try {
+    return axios
+      .get(`http://localhost:5000/files?gameTitle=${state}`)
+      .then((res) => {
+        console.log("~~~~~~~~~~~~~~~~~~", res.data[0].files);
+        return res.data[0].files;
+      });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const UnityWrapper = ({ unityConfig }) => {
+  const unityContext = useUnityContext(unityConfig);
+  const { isLoaded, loadingProgression, sendMessage } = unityContext;
+  console.log('unityConfig', unityConfig)
+  console.log('isLoaded', isLoaded, loadingProgression)
+
+  return (
+    <Unity
+      unityProvider={unityContext.unityProvider}
+      style={{
+        height: "100%",
+        width: "100%",
+        background: "#555",
+      }}
+    />
+  );
+};
 
 export default function Playground() {
-  const [loadingPercent, setLoadingPercent] = React.useState(0);
-  const unityContext = useUnityContext(AppConstants.unityConfig);
-  const { isLoaded, sendMessage } = unityContext;
+  const location = useLocation();
+  const [unityConfig, setUnityConfig] = React.useState<UnityConfig | null>(
+    null
+  );
+  const state = location.state;
 
-  //   useInterval(async () => {
-  //     try {
-  //       if (!isLoaded) {
-  //         return;
-  //       }
+  useEffect(() => {
+    fetch(state).then((contain) => {
+      setUnityConfig({
+        loaderUrl: `http://localhost:5000/${contain[0].destination}/${contain[6].fileName}`,
+        dataUrl: `http://localhost:5000/${contain[0].destination}/${contain[3].fileName}`,
+        frameworkUrl: `http://localhost:5000/${contain[0].destination}/${contain[5].fileName}`,
+        codeUrl: `http://localhost:5000/${contain[0].destination}/${contain[4].fileName}`,
+      });
+    });
+  }, [state]);
 
-  //       const game = await getGameState();
-  //       if (game.race) {
-  //         setRace(game.race);
-  //         const updatedState = game.race.status;
-  //         if (updatedState) {
-  //           if (
-  //             race.status === RaceState.Ready &&
-  //             updatedState === RaceState.Started
-  //           ) {
-  //             sendMessage("GameController", "StartRaceNow", 45);
-  //           }
-  //         }
-  //       }
-  //       if (address && game.tickets) {
-  //         const tickets = game.tickets.filter((t) => t.address === address);
-  //         dispatch(updateTickets(tickets));
-  //       }
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   }, 2000);
+  // console.log("VVV", unityConfig);
 
-  useInterval(() => {
-    setLoadingPercent((value) => (value <= 99 ? value + Math.random() : value));
-  }, 100);
+  // const [loadingPercent, setLoadingPercent] = React.useState(0);
+  // useInterval(() => {
+  //   setLoadingPercent((value) => (value <= 99 ? value + Math.random() : value));
+  // }, 100);
 
   return (
     <>
@@ -60,52 +81,7 @@ export default function Playground() {
             paddingTop: "4rem",
           }}
         >
-          <Box>
-            {/* <Grid container spacing={0.5}> */}
-            {/* <Grid item sm={10} xs={12}> */}
-            <div>
-              <Unity
-                unityProvider={unityContext.unityProvider}
-                style={{
-                  height: "100%",
-                  width: "100%",
-                  background: "#555",
-                }}
-              />
-              {!isLoaded && (
-                <Typography
-                  variant="subtitle1"
-                  gutterBottom
-                  sx={{ color: "white" }}
-                >
-                  Loading... {loadingPercent.toFixed(2)}%
-                </Typography>
-              )}
-            </div>
-            {/* </Grid> */}
-            {/* <Grid item sm={2} xs={12}>
-                <RaceTimer race={race} />
-                <HorseOdds />
-                <RacePanel
-                  status={race?.status}
-                  unityContext={unityContext}
-                ></RacePanel>
-              </Grid> */}
-            {/* </Grid> */}
-          </Box>
-          {/* <Box sx={{ mb: 4 }}>
-            <Grid container spacing={1}>
-              <Grid item sm={4} xs={12}>
-                <PlaceBet race={race} />
-              </Grid>
-              <Grid item sm={8} xs={12}>
-                {ticketView}
-              </Grid>
-            </Grid>
-          </Box>
-          <Box sx={{ mb: 4 }}>
-            <NFTCollection />
-          </Box> */}
+          {!!unityConfig && <UnityWrapper unityConfig={unityConfig} />}
         </Container>
       </Box>
     </>
