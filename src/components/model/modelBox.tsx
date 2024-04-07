@@ -29,7 +29,7 @@ export default function ModelBox() {
         <ModelView/>
       </Canvas>
       
-        <div style={{ position: "absolute", top: 300, left: 100 }}>
+        <div className={classes.miniCard}>
           <GameCard item={item !== undefined ? item : AppConstants.cardData[0]} />
         </div>
       

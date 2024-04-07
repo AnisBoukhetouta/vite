@@ -1,18 +1,15 @@
-import React, { useEffect, useMemo } from "react";
-import Loader from "../../navigation/loader/loader";
-import { Box, Container, Grid, Typography } from "@mui/material";
+import React, { useEffect } from "react";
+import { Box, Container } from "@mui/material";
 import { Unity, UnityConfig, useUnityContext } from "react-unity-webgl";
-import useInterval from "../../hooks/useInterval";
 import { useLocation } from "react-router";
-import { Data } from "../../components/lobbyHeaderGame/lobbyHeaderGame";
 import axios from "axios";
+import classes from "./playground.module.css";
 
 const fetch = async (state) => {
   try {
     return axios
       .get(`http://localhost:5000/files?gameTitle=${state}`)
       .then((res) => {
-        console.log("~~~~~~~~~~~~~~~~~~", res.data[0].files);
         return res.data[0].files;
       });
   } catch (e) {
@@ -23,18 +20,24 @@ const fetch = async (state) => {
 const UnityWrapper = ({ unityConfig }) => {
   const unityContext = useUnityContext(unityConfig);
   const { isLoaded, loadingProgression, sendMessage } = unityContext;
-  console.log('unityConfig', unityConfig)
-  console.log('isLoaded', isLoaded, loadingProgression)
+  console.log("isLoaded", isLoaded, loadingProgression);
 
   return (
-    <Unity
-      unityProvider={unityContext.unityProvider}
-      style={{
-        height: "100%",
-        width: "100%",
-        background: "#555",
-      }}
-    />
+    <div className={classes.container}>
+      <Unity
+        unityProvider={unityContext.unityProvider}
+        className={classes.unity}
+        style={{
+          display: !!isLoaded ? "inline" : "none",
+        }}
+      />
+      <div
+        className={classes.loader}
+        style={{
+          display: !isLoaded ? "inline" : "none",
+        }}
+      ></div>
+    </div>
   );
 };
 
@@ -55,13 +58,6 @@ export default function Playground() {
       });
     });
   }, [state]);
-
-  // console.log("VVV", unityConfig);
-
-  // const [loadingPercent, setLoadingPercent] = React.useState(0);
-  // useInterval(() => {
-  //   setLoadingPercent((value) => (value <= 99 ? value + Math.random() : value));
-  // }, 100);
 
   return (
     <>

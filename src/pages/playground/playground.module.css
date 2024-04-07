@@ -1,0 +1,50 @@
+/* HTML: <div class="loader"></div> */
+.unity {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: #555;
+  aspect-ratio: 912/456;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+.loader {
+  width: 40%;
+  margin-top: 100px;
+  text-align: center;
+  aspect-ratio: 1;
+  position: absolute;
+}
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffb940;
+  box-shadow: 0 0 0 50px;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+}
+.loader:after {
+  animation: l5 1s infinite;
+  transform: perspective(300px) translateZ(0px);
+}
+@keyframes l5 {
+  to {
+    transform: perspective(300px) translateZ(150px);
+    opacity: 0;
+  }
+}
