@@ -100,7 +100,7 @@ export default function Upload() {
     });
     try {
       const response = await axios.post(
-        "http://api/pwniq/upload",
+        "http://localhost:6001/api/pwniq/upload",
         formData,
         {
           headers: {
