@@ -8,7 +8,7 @@ import classes from "./playground.module.css";
 const fetch = async (state) => {
   try {
     return axios
-      .get(`http://localhost:5000/files?gameTitle=${state}`)
+      .get(`http://api/pwniq/files?gameTitle=${state}`)
       .then((res) => {
         return res.data[0].files;
       });
@@ -51,10 +51,10 @@ export default function Playground() {
   useEffect(() => {
     fetch(state).then((contain) => {
       setUnityConfig({
-        loaderUrl: `http://localhost:5000/${contain[0].destination}/${contain[6].fileName}`,
-        dataUrl: `http://localhost:5000/${contain[0].destination}/${contain[3].fileName}`,
-        frameworkUrl: `http://localhost:5000/${contain[0].destination}/${contain[5].fileName}`,
-        codeUrl: `http://localhost:5000/${contain[0].destination}/${contain[4].fileName}`,
+        loaderUrl: `http://api/pwniq/${contain[0].destination}/${contain[6].fileName}`,
+        dataUrl: `http://api/pwniq/${contain[0].destination}/${contain[3].fileName}`,
+        frameworkUrl: `http://api/pwniq/${contain[0].destination}/${contain[5].fileName}`,
+        codeUrl: `http://api/pwniq/${contain[0].destination}/${contain[4].fileName}`,
       });
     });
   }, [state]);

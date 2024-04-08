@@ -43,7 +43,7 @@ export default function LobbyHeaderGame() {
     const fetch = async () => {
       try {
         await axios
-          .get("http://localhost:5000/files")
+          .get("http://api/pwniq/files")
           .then((response) => {
             setFetchedData(response.data);
             console.log("FetchedData~~~~~~", response.data);
@@ -59,8 +59,8 @@ export default function LobbyHeaderGame() {
   fetchedData.map((data, index) => {
     items.push({
       _id: data._id,
-      imageOut: `http://localhost:5000/${data.files[0].destination}/${data.files[0].fileName}`,
-      imageOver: `http://localhost:5000/${data.files[0].destination}/${data.files[2].fileName}`,
+      imageOut: `http://api/pwniq/${data.files[0].destination}/${data.files[0].fileName}`,
+      imageOver: `http://api/pwniq/${data.files[0].destination}/${data.files[2].fileName}`,
     });
   });
 
