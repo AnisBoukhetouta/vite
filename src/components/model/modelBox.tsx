@@ -1,38 +1,54 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Model from "./model";
 import classes from "./modelBox.module.css";
 import TopGames from "../topGames/topGames";
 import GameCard from "../gameCards/gameCard";
 import AppConstants from "../../AppConstants";
+import { LinearProgress } from "@mui/material";
+import { toDataURL } from "../imageCach";
 
 export default function ModelBox() {
-  const [background, setBackground] = React.useState<any>(
-    "/images/home/10302.jpg"
-  );
-  const [item, setItem] = React.useState<any>();
-  const ModelView = useCallback(() => <Model />,[]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [imageUrl, setImageUrl] = useState<string>("/images/home/10302.jpg");
+  const [item, setItem] = useState<any>();
+
+  useEffect(() => {
+    if (item) {
+      setLoading(true);
+      toDataURL(item.imageOver, function (dataUrl) {
+        setImageUrl(dataUrl);
+        setLoading(false);
+      });
+    }
+  }, [item]);
+
+  const ModelView = useCallback(() => <Model />, []);
+
   return (
     <>
       <Canvas
         camera={{ position: [1, 1, 5], fov: 50 }}
         className={classes.modelBox}
         style={{
-          backgroundImage: `url(${
-            item !== undefined ? item.imageOver : "/images/home/10302.jpg"
-          })`,
+          position: "relative",
+          backgroundImage: `url(${imageUrl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundPositionY: "Top",
         }}
         shadows
       >
-        <ModelView/>
+        <ModelView />
       </Canvas>
-      
-        <div className={classes.miniCard}>
-          <GameCard item={item !== undefined ? item : AppConstants.cardData[0]} />
-        </div>
-      
+      {loading && (
+        <LinearProgress className={classes.progressbar} color="error"  />
+      )}
+      <div className={classes.miniCard}>
+        <GameCard item={item || AppConstants.cardData[0]} />
+      </div>
+
       <TopGames setItem={setItem} />
     </>
   );

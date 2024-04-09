@@ -8,7 +8,7 @@ import classes from "./playground.module.css";
 const fetch = async (state) => {
   try {
     return axios
-      .get(`http://localhost:6001/api/pwniq/files?gameTitle=${state}`)
+      .get(`https://grat.fun/api/pwniq/files?gameTitle=${state}`)
       .then((res) => {
         return res.data[0].files;
       });
@@ -51,10 +51,10 @@ export default function Playground() {
   useEffect(() => {
     fetch(state).then((contain) => {
       setUnityConfig({
-        loaderUrl: `http://localhost:6001/api/pwniq/${contain[0].destination}/${contain[6].fileName}`,
-        dataUrl: `http://localhost:6001/api/pwniq/${contain[0].destination}/${contain[3].fileName}`,
-        frameworkUrl: `http://localhost:6001/api/pwniq/${contain[0].destination}/${contain[5].fileName}`,
-        codeUrl: `http://localhost:6001/api/pwniq/${contain[0].destination}/${contain[4].fileName}`,
+        loaderUrl: `https://grat.fun/api/pwniq/${contain[0].destination}/${contain[6].fileName}`,
+        dataUrl: `https://grat.fun/api/pwniq/${contain[0].destination}/${contain[3].fileName}`,
+        frameworkUrl: `https://grat.fun/api/pwniq/${contain[0].destination}/${contain[5].fileName}`,
+        codeUrl: `https://grat.fun/api/pwniq/${contain[0].destination}/${contain[4].fileName}`,
       });
     });
   }, [state]);

@@ -1,7 +1,6 @@
 .navlink a {
   display: block;
   text-decoration: none;
-  /* font-weight: bold; */
   color: var(--light);
 }
 

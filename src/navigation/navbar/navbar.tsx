@@ -8,15 +8,13 @@ import SidebarToggle from "../sidebarToggle/sidebarToggle";
 
 const navbar = (props) => {
   return (
-    // <Container maxWidth="xl">
-      <header className={classes.navbar}>
-        <nav className={classes.links}>
-          <Navlinks />
-        </nav>
+    <header className={classes.navbar}>
+      <nav className={classes.links}>
+        <Navlinks />
+      </nav>
 
-        <SidebarToggle clicked={props.toggleSidebar} />
-      </header>
-    // </Container>
+      <SidebarToggle clicked={props.toggleSidebar} />
+    </header>
   );
 };
 

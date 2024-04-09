@@ -32,21 +32,6 @@ const initialValues = {
   squareFile: null,
 };
 
-const validationSchema = Yup.object().shape({
-  // gameTitle: Yup.string().required("gameTitle is Required"),
-  // category: Yup.string().required("category is Required"),
-  // tags: Yup.string().required("tags is Required"),
-  // description: Yup.string().required("description is Required"),
-  // controls: Yup.string().required("controls is Required"),
-  // googlePlay: Yup.string().required("googlePlay is Required"),
-  // iOsApp: Yup.string().required("iOsApp is Required"),
-  // steamLink: Yup.string().required("steamLink is Required"),
-  // gameType: Yup.string().required("gameType is Required"),
-  // fileUpload: Yup.mixed().required("fileUpload is required"),
-  // landscapeFile: Yup.mixed().required("landscapeFile is required"),
-  // portraitFile: Yup.mixed().required("portraitFile is required"),
-  // squareFile: Yup.mixed().required("squareFile is required"),
-});
 export default function Upload() {
   const [fileUpload, setFileUpload] = React.useState<File[]>([]);
   const [landscapeFile, setLandscapeFile] = React.useState<File | null>(null);
@@ -100,7 +85,7 @@ export default function Upload() {
     });
     try {
       const response = await axios.post(
-        "http://localhost:6001/api/pwniq/upload",
+        "https://grat.fun/api/pwniq/upload",
         formData,
         {
           headers: {
@@ -131,7 +116,6 @@ export default function Upload() {
           portraitFile,
           squareFile,
         }}
-        validationSchema={validationSchema}
         onSubmit={registerHandler}
       >
         {(formik) => (

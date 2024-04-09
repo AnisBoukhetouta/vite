@@ -6,7 +6,6 @@ import "@fontsource/bebas-neue";
 
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/home";
-import Test from "./pages/test/test";
 
 import Layout from "./navigation/layout/layout";
 import GameLobby from "./pages/gameLobby/gameLobby";
@@ -17,7 +16,6 @@ const App = () => {
   let routes = (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/test" element={<Test />} />
       <Route path="/gamelobby" element={<GameLobby />} />
       <Route path="/upload" element={<Upload />} />
       <Route path="/playground" element={<Playground />} />

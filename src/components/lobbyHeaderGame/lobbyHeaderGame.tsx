@@ -43,7 +43,7 @@ export default function LobbyHeaderGame() {
     const fetch = async () => {
       try {
         await axios
-          .get("http://localhost:6001/api/pwniq/files")
+          .get("https://grat.fun/api/pwniq/files")
           .then((response) => {
             setFetchedData(response.data);
             console.log("FetchedData~~~~~~", response.data);
@@ -59,22 +59,14 @@ export default function LobbyHeaderGame() {
   fetchedData.map((data, index) => {
     items.push({
       _id: data._id,
-      imageOut: `http://localhost:6001/api/pwniq/${data.files[0].destination}/${data.files[0].fileName}`,
-      imageOver: `http://localhost:6001/api/pwniq/${data.files[0].destination}/${data.files[2].fileName}`,
+      imageOut: `https://grat.fun/api/pwniq/${data.files[0].destination}/${data.files[0].fileName}`,
+      imageOver: `https://grat.fun/api/pwniq/${data.files[0].destination}/${data.files[2].fileName}`,
     });
   });
 
   return (
     <div className={classes.lobodyGame}>
-      {/* <Typography variant="h4" gutterBottom sx={{ color: "white", ml: 2 }}>
-          BY EPIO
-        </Typography> */}
       <div className={classes.topGames}>
-        {/* <ScrollingCarousel
-          children={AppConstants.cardData.map((item) => (
-            <GameLobbyCard key={item._id} item={item} />
-          ))}
-        /> */}
         <Container maxWidth="lg" className={classes.lobbyCardsContainer}>
           <GameCards cardData={items} />
         </Container>
