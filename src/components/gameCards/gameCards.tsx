@@ -7,7 +7,7 @@ export default function GameCards({ cardData }) {
   return (
     <Grid container direction="row" justifyContent="center" alignItems="center">
       {cardData.map((item) => (
-        <NavLink key={item._id} to="/playground" state={item._id}>
+        <NavLink key={item._id} to="/playground" state={item._id} style={{textDecoration: 'none'}}>
           <GameCard item={item} />
         </NavLink>
       ))}
