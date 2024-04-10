@@ -8,7 +8,7 @@
   transition: 0.33s;
 }
 
-@media (min-width: 40em) {
+@media (min-width: 45em) {
   .sidebarToggle {
     display: none;
   }

@@ -21,19 +21,22 @@
   text-wrap: balance;
   box-sizing: border-box;
   position: relative;
-  /* font-family: 'Dela Gothic One', sans-serif; */
-  /* font-family: "Bebas Neue", sans-serif; */
-  /* font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif; */
   font-family: "Paytone One", sans-serif;
-  /* color: var(--light); */
-  /* background: url("/images/home/10302.jpg") no-repeat fixed center; */
   box-sizing: border-box;
 }
-
 .MuiFormControl-root {
   border: 1px solid var(--light) !important;
 }
-
-.MuiInputBase-input {
+.MuiInputBase-input, .MuiInputLabel-root {
   color: var(--light) !important;
+}
+.css-1oprhov::after {
+  border-top: rgba(255, 255, 255, 0.72) thin solid !important;
+}
+.css-1oprhov::before {
+  border-top: rgba(255, 255, 255, 0.72) thin solid !important;
+}
+.Mui-disabled {
+  color: var(--light) !important;
+  cursor: alias;
 }

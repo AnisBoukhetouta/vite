@@ -2,5 +2,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1500,
-    "typescript.enablePromptUseWorkspaceTsdk": true
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "editor.tabSize": 2,
+    "editor.tabCompletion": "on",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "editor.gotoLocation.multipleTypeDefinitions": "goto",
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    }
 }
