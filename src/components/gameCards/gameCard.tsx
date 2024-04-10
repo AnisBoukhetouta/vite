@@ -38,7 +38,7 @@ export default function GameCard({ item, onSetItem }: Props) {
         />
       </Card>
       <h3 style={{ color: "white", textAlign: "center" }}>
-        {Number(item._id) + 1}
+        {item._id}
       </h3>
     </div>
   );
