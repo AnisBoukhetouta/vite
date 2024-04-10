@@ -85,7 +85,8 @@ export default function Upload() {
     });
     try {
       const response = await axios.post(
-        "https://grat.fun/api/pwniq/upload",
+        // "https://grat.fun/api/pwniq/upload",
+        "http://localhost:6001/api/pwniq/upload",
         formData,
         {
           headers: {

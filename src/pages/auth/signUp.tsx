@@ -48,7 +48,8 @@ const Signup = () => {
         console.log("USERINFO", userInfo);
         try {
           const response = axios.post(
-            "https://grat.fun/api/pwniq/userInfo",
+            // "https://grat.fun/api/pwniq/userInfo",
+            "http://localhost:6001/api/pwniq/userInfo",
             userInfo
           );
           console.log("RESPONSE", response);
