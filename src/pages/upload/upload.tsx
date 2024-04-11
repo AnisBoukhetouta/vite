@@ -16,6 +16,8 @@ import AppConstants from "../../AppConstants";
 import { CloudUpload } from "@mui/icons-material";
 import axios from "axios";
 import FileUpload from "../../components/fileUpload/fileUpload";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   gameTitle: "",
@@ -37,17 +39,21 @@ export default function Upload() {
   const [landscapeFile, setLandscapeFile] = React.useState<File | null>(null);
   const [portraitFile, setPortraitFile] = React.useState<File | null>(null);
   const [squareFile, setSquareFile] = React.useState<File | null>(null);
+  const navigate = useNavigate();
   let uploadContainer: File[] = [];
 
   useEffect(() => {
-    console.log("FileUpload state updated:", fileUpload);
-  }, [fileUpload]);
-  useEffect(() => {
-    console.log("LandscapeFile state updated:", landscapeFile);
-  }, [landscapeFile]);
+    auth.onAuthStateChanged(function (user) {
+      if (user) {
+        let uid = user.uid;
+        console.log("UID", uid);
+      } else {
+        navigate("/login");
+      }
+    });
+  }, []);
 
   const registerHandler = async (values, { setSubmitting }) => {
-    console.log(values);
     const formData = new FormData();
     formData.append("gameTitle", values.gameTitle);
     formData.append("category", values.category);
@@ -62,7 +68,6 @@ export default function Upload() {
     portraitFile && formData.append("portraitFile", portraitFile[0]);
     squareFile && formData.append("squareFile", squareFile[0]);
     fileUpload.map((file, index) => {
-      // formData.append(`fileUpload${index}`, file);
       const data = ".data";
       const wasm = ".wasm";
       const framework = ".framework";
@@ -93,7 +98,7 @@ export default function Upload() {
           },
         }
       );
-      console.log(response.data);
+      // console.log(response.data);
       setSubmitting(false);
       window.location.replace("/gamelobby");
     } catch (e) {

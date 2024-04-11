@@ -52,7 +52,7 @@ const Signup = () => {
             userInfo
           );
           console.log("RESPONSE", response);
-          // navigate("/login");
+          navigate("/login");
         } catch (err) {
           console.log(err);
         }
