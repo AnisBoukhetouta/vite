@@ -39,6 +39,9 @@ export default function Upload() {
   const [landscapeFile, setLandscapeFile] = React.useState<File | null>(null);
   const [portraitFile, setPortraitFile] = React.useState<File | null>(null);
   const [squareFile, setSquareFile] = React.useState<File | null>(null);
+  const [uid, setUid] = React.useState("");
+  const [characterFileUpload, setCharacterFileUpload] =
+    React.useState<File | null>(null);
   const navigate = useNavigate();
   let uploadContainer: File[] = [];
 
@@ -46,6 +49,7 @@ export default function Upload() {
     auth.onAuthStateChanged(function (user) {
       if (user) {
         let uid = user.uid;
+        setUid(uid);
         console.log("UID", uid);
       } else {
         navigate("/login");
@@ -53,7 +57,7 @@ export default function Upload() {
     });
   }, []);
 
-  const registerHandler = async (values, { setSubmitting }) => {
+  const onUpload = async (values, { setSubmitting }) => {
     const formData = new FormData();
     formData.append("gameTitle", values.gameTitle);
     formData.append("category", values.category);
@@ -106,6 +110,28 @@ export default function Upload() {
     }
   };
 
+  const onCharacterUpload = async (values, { setSubmitting }) => {
+    const formData = new FormData();
+    formData.append("uid", uid);
+    characterFileUpload && formData.append("characterFileUpload", characterFileUpload[0]);
+    try {
+      const response = await axios.post(
+        "https://grat.fun/api/pwniq/characterFileUpload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      // console.log(response.data);
+      setSubmitting(false);
+      window.location.replace("/gamelobby");
+    } catch (e) {
+      console.log("Error submitting form:", e);
+    }
+  };
+
   return (
     <Container
       style={{
@@ -121,11 +147,11 @@ export default function Upload() {
           portraitFile,
           squareFile,
         }}
-        onSubmit={registerHandler}
+        onSubmit={onUpload}
       >
         {(formik) => (
           <Form>
-            <h1>Submit Game</h1>{" "}
+            <h1>Submit Game</h1>
             <Paper
               sx={{
                 marginTop: 3,
@@ -375,6 +401,54 @@ export default function Upload() {
                   />
                 </div>
               </Stack>
+              <Stack direction="row" sx={{ justifyContent: "end" }}>
+                <Button
+                  startIcon={<CloudUpload />}
+                  type="submit"
+                  disabled={formik.isSubmitting}
+                  variant="contained"
+                  sx={{
+                    marginTop: 5,
+                    marginBottom: 5,
+                    padding: 2,
+                  }}
+                >
+                  Upload
+                </Button>
+              </Stack>
+            </Paper>
+          </Form>
+        )}
+      </Formik>
+      <Formik
+        initialValues={{
+          characterFileUpload,
+        }}
+        onSubmit={onCharacterUpload}
+      >
+        {(formik) => (
+          <Form>
+            <h1 style={{ paddingTop: "3rem" }}>
+              Character or Backbling File Upload
+            </h1>
+            <Paper
+              sx={{
+                marginTop: 3,
+                padding: 5,
+                backgroundColor: "rgba(54, 52, 52, 0.744)",
+                color: "rgb(202, 196, 196)",
+              }}
+            >
+              <div>
+                <Typography>File Upload *</Typography>
+                <FileUpload
+                  title="Character or Backbling file"
+                  fieldName="characterFileUpload"
+                  height={400}
+                  setFieldValue={setCharacterFileUpload}
+                  maxFiles={1}
+                />
+              </div>
               <Stack direction="row" sx={{ justifyContent: "end" }}>
                 <Button
                   startIcon={<CloudUpload />}
