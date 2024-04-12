@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 export default function Inventory() {
   const navigate = useNavigate();
   const baseUrl = import.meta.env.VITE_APP_BASE;
-  const characterFileUploadUrl = import.meta.env.VITE_CHARACTER_FILE_UPLOAD;
+  const getCharacterFile = import.meta.env.VITE_GET_CHARACTER_FILE;
   const [uid, setUid] = useState("");
   const [fetchedCharacters, setFetchedCharacters] = useState([]);
 
@@ -28,7 +28,7 @@ export default function Inventory() {
       try {
         if (uid) {
           const response = await axios.get(
-            `${characterFileUploadUrl}?uid=${uid}`
+            `${getCharacterFile}?uid=${uid}`
           );
           console.log("FetchedModel~~~~~~", response.data);
           setFetchedCharacters(response.data);

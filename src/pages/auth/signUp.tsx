@@ -141,7 +141,7 @@ const Signup = () => {
             <NavLink
               className={classes.fontStyle}
               target="blank"
-              to="https://www.epicgames.com/site/en-US/privacypolicy?lang=en-US"
+              to="/Privacy Policy"
             >
               Privacy Policy
             </NavLink>
