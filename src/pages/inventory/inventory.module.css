@@ -4,13 +4,12 @@
   padding-top: 4rem;
   padding-bottom: 4rem;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 .inventoryContainer {
   background-color: rgb(32, 32, 32);
-  width: 80vw !important;
-  /* height: 80vh; */
-  padding: 50px 55px 60px !important;
-  margin: 0 !important;
+  width: 180px !important;
+  height: 280px;
+  margin: 3rem !important;
   text-align: center;
 }

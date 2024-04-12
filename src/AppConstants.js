@@ -119,81 +119,51 @@ const AppConstants = {
   cardData: [
     {
       _id: "0",
-      // imageOut: "/images/cardImages/0.jpeg",
-      imageOut: "/images/initialCardImages/0.jpeg",
-
       imageOver: "/images/cardImages/6.jpeg",
       imageCardOver: "/images/initialCardImages/6.jpeg",
     },
     {
       _id: "1",
-      // imageOut: "/images/cardImages/1.jpeg",
-      imageOut: "/images/initialCardImages/1.jpeg",
-
       imageOver: "/images/cardImages/7.jpeg",
       imageCardOver: "/images/initialCardImages/7.jpeg",
     },
     {
       _id: "2",
-      // imageOut: "/images/cardImages/2.jpeg",
-      imageOut: "/images/initialCardImages/2.jpeg",
-
       imageOver: "/images/cardImages/8.jpeg",
       imageCardOver: "/images/initialCardImages/8.jpeg",
     },
     {
       _id: "3",
-      // imageOut: "/images/cardImages/3.jpeg",
-      imageOut: "/images/initialCardImages/3.jpeg",
-
       imageOver: "/images/cardImages/9.jpeg",
       imageCardOver: "/images/initialCardImages/9.jpeg",
     },
     {
       _id: "4",
-      // imageOut: "/images/cardImages/4.jpeg",
-      imageOut: "/images/initialCardImages/4.jpeg",
-
       imageOver: "/images/cardImages/0.jpeg",
       imageCardOver: "/images/initialCardImages/0.jpeg",
     },
     {
       _id: "5",
-      // imageOut: "/images/cardImages/8.jpeg",
-      imageOut: "/images/initialCardImages/8.jpeg",
-
       imageOver: "/images/cardImages/4.jpeg",
       imageCardOver: "/images/initialCardImages/4.jpeg",
     },
     {
       _id: "6",
-      // imageOut: "/images/cardImages/6.jpeg",
-      imageOut: "/images/initialCardImages/6.jpeg",
-
-      imageOver: "/images/cardImages/2.jpeg",
-      imageCardOver: "/images/initialCardImages/2.jpeg",
+      imageOver: "/images/cardImages/2.jpg",
+      imageCardOver: "/images/initialCardImages/2.jpg",
     },
     {
       _id: "7",
-      // imageOut: "/images/cardImages/7.jpeg",
-      imageOut: "/images/initialCardImages/7.jpeg",
-
       imageOver: "/images/cardImages/3.jpeg",
       imageCardOver: "/images/initialCardImages/3.jpeg",
     },
     {
       _id: "8",
-      // imageOut: "/images/cardImages/5.jpeg",
-      imageOut: "/images/initialCardImages/5.jpeg",
-
-      imageOver: "/images/cardImages/1.jpeg",
-      imageCardOver: "/images/initialCardImages/1.jpeg",
+      imageOver: "/images/cardImages/1.jpg",
+      imageCardOver: "/images/initialCardImages/1.jpg",
     },
     {
       _id: "9",
-      // imageOut: "/images/cardImages/9.jpeg",
-      imageOut: "/images/initialCardImages/9.jpeg",
-
       imageOver: "/images/cardImages/5.jpeg",
       imageCardOver: "/images/initialCardImages/5.jpeg",
     },

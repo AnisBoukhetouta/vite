@@ -94,8 +94,7 @@ export default function Upload() {
     });
     try {
       const response = await axios.post(
-        // "https://grat.fun/api/pwniq/upload",
-        "http://localhost:6001/api/pwniq/upload",
+        "https://grat.fun/api/pwniq/upload",
         formData,
         {
           headers: {
@@ -117,8 +116,7 @@ export default function Upload() {
     characterFileUpload && formData.append("characterFileUpload", characterFileUpload[0]);
     try {
       const response = await axios.post(
-        // "https://grat.fun/api/pwniq/characterFileUpload",
-        "http://localhost:6001/api/pwniq/characterFileUpload",
+        "https://grat.fun/api/pwniq/characterFileUpload",
         formData,
         {
           headers: {
@@ -128,7 +126,7 @@ export default function Upload() {
       );
       // console.log(response.data);
       setSubmitting(false);
-      window.location.replace("/gamelobby");
+      window.location.replace("/inventory");
     } catch (e) {
       console.log("Error submitting form:", e);
     }

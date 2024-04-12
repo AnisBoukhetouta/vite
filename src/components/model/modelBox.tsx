@@ -10,13 +10,13 @@ import { toDataURL } from "../imageCach";
 
 export default function ModelBox() {
   const [loading, setLoading] = useState<boolean>(false);
-  const [imageUrl, setImageUrl] = useState<string>("/images/home/10302.jpg");
+  const [imageUrl, setImageUrl] = useState<string>(AppConstants.cardData[0].imageCardOver);
   const [item, setItem] = useState<any>();
 
   useEffect(() => {
     if (item) {
       setLoading(true);
-      toDataURL(item.imageOver, function (dataUrl) {
+      toDataURL(item.imageCardOver, function (dataUrl) {
         setImageUrl(dataUrl);
         setLoading(false);
       });
