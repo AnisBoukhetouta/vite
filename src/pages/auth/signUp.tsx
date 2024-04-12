@@ -15,7 +15,7 @@ import axios from "axios";
 
 const Signup = () => {
   const navigate = useNavigate();
-
+  const userInfoUrl = import.meta.env.VITE_USER_INFO;
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,7 +25,11 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, userEmail, password);
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        userEmail,
+        password
+      );
       const user = userCredential.user;
       const {
         uid,
@@ -36,7 +40,7 @@ const Signup = () => {
       } = user;
       const userInfo = {
         userName,
-        email : userEmail,
+        email: userEmail,
         creationTime,
         lastSignInTime,
         uid,
@@ -45,7 +49,7 @@ const Signup = () => {
         refreshToken,
       };
 
-      const response = await axios.post("https://grat.fun/api/pwniq/userInfo", userInfo);
+      const response = await axios.post(userInfoUrl, userInfo);
       console.log("RESPONSE", response);
       navigate("/login");
     } catch (error) {

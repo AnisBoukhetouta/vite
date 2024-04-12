@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 
 export default function Inventory() {
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_APP_BASE;
+  const characterFileUploadUrl = import.meta.env.VITE_CHARACTER_FILE_UPLOAD;
   const [uid, setUid] = useState("");
   const [fetchedCharacters, setFetchedCharacters] = useState([]);
 
@@ -26,7 +28,7 @@ export default function Inventory() {
       try {
         if (uid) {
           const response = await axios.get(
-            `https://grat.fun/api/pwniq/characterFiles?uid=${uid}`
+            `${characterFileUploadUrl}?uid=${uid}`
           );
           console.log("FetchedModel~~~~~~", response.data);
           setFetchedCharacters(response.data);
@@ -74,7 +76,8 @@ export default function Inventory() {
                 />
                 <group position={[0.8, 0, 3.5]}>
                   <UserCharacter
-                    character={`https://grat.fun/api/pwniq/${destination}/${fileName}`}
+                    key={fileName}
+                    character={`${baseUrl}/${destination}/${fileName}`}
                   />
                 </group>
                 <mesh

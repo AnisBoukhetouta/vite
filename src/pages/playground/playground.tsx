@@ -5,18 +5,6 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import classes from "./playground.module.css";
 
-const fetch = async (state) => {
-  try {
-    return axios
-      .get(`https://grat.fun/api/pwniq/files?gameTitle=${state}`)
-      .then((res) => {
-        return res.data[0].files;
-      });
-  } catch (e) {
-    console.log(e);
-  }
-};
-
 const UnityWrapper = ({ unityConfig }) => {
   const unityContext = useUnityContext(unityConfig);
   const { isLoaded, loadingProgression, sendMessage } = unityContext;
@@ -43,18 +31,30 @@ const UnityWrapper = ({ unityConfig }) => {
 
 export default function Playground() {
   const location = useLocation();
+  const baseUrl = import.meta.env.VITE_APP_BASE;
+  const getFilesUrl = import.meta.env.VITE_GET_FILES;
   const [unityConfig, setUnityConfig] = React.useState<UnityConfig | null>(
     null
   );
   const state = location.state;
 
+  const fetch = async (state) => {
+    try {
+      return axios.get(`${getFilesUrl}?gameTitle=${state}`).then((res) => {
+        return res.data[0].files;
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     fetch(state).then((contain) => {
       setUnityConfig({
-        loaderUrl: `https://grat.fun/api/pwniq/${contain[0].destination}/${contain[6].fileName}`,
-        dataUrl: `https://grat.fun/api/pwniq/${contain[0].destination}/${contain[3].fileName}`,
-        frameworkUrl: `https://grat.fun/api/pwniq/${contain[0].destination}/${contain[5].fileName}`,
-        codeUrl: `https://grat.fun/api/pwniq/${contain[0].destination}/${contain[4].fileName}`,
+        loaderUrl: `${baseUrl}/${contain[0].destination}/${contain[6].fileName}`,
+        dataUrl: `${baseUrl}/${contain[0].destination}/${contain[3].fileName}`,
+        frameworkUrl: `${baseUrl}/${contain[0].destination}/${contain[5].fileName}`,
+        codeUrl: `${baseUrl}/${contain[0].destination}/${contain[4].fileName}`,
       });
     });
   }, [state]);
