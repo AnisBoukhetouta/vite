@@ -26,13 +26,14 @@ const Signup = () => {
     await createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
+        console.log('!!!!!!!!!!!!!!!!!!!!!!!!', userCredential)
+
         const user = userCredential.user;
         const {
           uid,
           email,
           metadata: { creationTime, lastSignInTime },
           providerId,
-          reloadUserInfo: { localId },
           stsTokenManager: { accessToken, refreshToken },
         } = user;
         const userInfo = {
@@ -41,7 +42,6 @@ const Signup = () => {
           lastSignInTime,
           uid,
           providerId,
-          localId,
           accessToken,
           refreshToken,
         };
@@ -53,7 +53,7 @@ const Signup = () => {
             userInfo
           );
           console.log("RESPONSE", response);
-          // navigate("/login");
+          navigate("/login");
         } catch (err) {
           console.log(err);
         }

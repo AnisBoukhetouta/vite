@@ -1,0 +1,16 @@
+.inventoryMain {
+  /* width: 100vw; */
+  min-height: 100vh;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+}
+.inventoryContainer {
+  background-color: rgb(32, 32, 32);
+  width: 80vw !important;
+  /* height: 80vh; */
+  padding: 50px 55px 60px !important;
+  margin: 0 !important;
+  text-align: center;
+}

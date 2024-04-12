@@ -5,7 +5,14 @@ import { Character } from "../Character";
 export default function Model() {
   return (
     <>
-      <OrbitControls />
+      <OrbitControls
+        minAzimuthAngle={0.2}
+        maxAzimuthAngle={0.2}
+        minPolarAngle={1.34}
+        maxPolarAngle={1.34}
+        minDistance={4.35}
+        maxDistance={7}
+      />
       <ambientLight />
       <directionalLight
         position={[-5, 5, 5]}
