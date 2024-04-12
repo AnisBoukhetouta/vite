@@ -1,5 +1,5 @@
 .gameLobbyContainer {
   padding-top: 4rem;
   background-color: #101014;
-  height: 100vh;
+  min-height: 100vh;
 }

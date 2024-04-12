@@ -14,6 +14,7 @@ import Playground from "./pages/playground/playground";
 import Signup from "./pages/auth/signUp";
 import Login from "./pages/auth/logIn";
 import User from "./pages/auth/user";
+import Inventory from "./pages/inventory/inventory";
 
 const App = () => {
   let routes = (
@@ -25,6 +26,7 @@ const App = () => {
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/user" element={<User />} />
+      <Route path="/inventory" element={<Inventory />} />
     </Routes>
   );
 
