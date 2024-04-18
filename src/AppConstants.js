@@ -1,4 +1,5 @@
 const AppConstants = {
+  uploadTypes: ["PwnIQ_Game", "Character"],
   categories: [
     ".io",
     "Action",
@@ -119,52 +120,52 @@ const AppConstants = {
   cardData: [
     {
       _id: "0",
-      imageOver: "/images/cardImages/6.jpeg",
+      imageOver: "/images/cardImages/5.png",
       imageCardOver: "/images/initialCardImages/6.jpeg",
     },
     {
       _id: "1",
-      imageOver: "/images/cardImages/7.jpeg",
+      imageOver: "/images/cardImages/6.png",
       imageCardOver: "/images/initialCardImages/7.jpeg",
     },
     {
       _id: "2",
-      imageOver: "/images/cardImages/8.jpeg",
+      imageOver: "/images/cardImages/3.png",
       imageCardOver: "/images/initialCardImages/8.jpeg",
     },
     {
       _id: "3",
-      imageOver: "/images/cardImages/9.jpeg",
+      imageOver: "/images/cardImages/8.png",
       imageCardOver: "/images/initialCardImages/9.jpeg",
     },
     {
       _id: "4",
-      imageOver: "/images/cardImages/0.jpeg",
+      imageOver: "/images/cardImages/0.png",
       imageCardOver: "/images/initialCardImages/0.jpeg",
     },
     {
       _id: "5",
-      imageOver: "/images/cardImages/4.jpeg",
+      imageOver: "/images/cardImages/4.png",
       imageCardOver: "/images/initialCardImages/4.jpeg",
     },
     {
       _id: "6",
-      imageOver: "/images/cardImages/2.jpg",
+      imageOver: "/images/cardImages/2.png",
       imageCardOver: "/images/initialCardImages/2.jpg",
     },
     {
       _id: "7",
-      imageOver: "/images/cardImages/3.jpeg",
+      imageOver: "/images/cardImages/6.png",
       imageCardOver: "/images/initialCardImages/3.jpeg",
     },
     {
       _id: "8",
-      imageOver: "/images/cardImages/1.jpg",
+      imageOver: "/images/cardImages/7.png",
       imageCardOver: "/images/initialCardImages/1.jpg",
     },
     {
       _id: "9",
-      imageOver: "/images/cardImages/5.jpeg",
+      imageOver: "/images/cardImages/9.png",
       imageCardOver: "/images/initialCardImages/5.jpeg",
     },
   ],

@@ -4,15 +4,50 @@
 }
 .progressbar {
   position: absolute !important;
-  top: 4rem !important;
+  top: 0 !important;
   left: 0 !important;
   width: 100vw !important;
   height: 2px !important;
 }
 .miniCard {
   position: absolute;
-  top: 40%;
-  top: 300;
-  left: 10%;
-  left: 100;
+  top: 15%;
+  left: 5%;
+}
+.lobbyHeaderButton {
+  padding: 20px;
+  width: 210px;
+  border-radius: 22px;
+  font-size: 26px;
+  font-weight: 900;
+  color: rgb(10, 10, 10);
+  background: #f7ff19;
+  cursor: pointer;
+  border: 0;
+}
+.buttonline {
+  margin: 10px;
+  margin-top: 150%;
+  width: 210px;
+  outline-color: transparent;
+  outline-offset: 0.75rem;
+  outline-width: 0;
+  outline-style: solid;
+  transition-duration: 0.1s;
+  transition-property: outline-color, outline-offset, outline-width;
+  transition-timing-function: ease-out;
+  overflow: clip;
+  border-radius: 20px;
+}
+
+.buttonline:hover {
+  outline-width: 0.3rem;
+  outline-offset: 0.25rem;
+  outline-color: rgb(190, 188, 188);
+}
+
+@media screen and (max-height: 700px) {
+  .buttonline {
+    margin-top: 200px;
+  }
 }

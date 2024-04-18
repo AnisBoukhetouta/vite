@@ -1,48 +1,63 @@
 import * as React from "react";
-import Card from "@mui/material/Card";
 import classes from "./card.module.css";
-import { Typography } from "@mui/material";
 import CardData from "./gameCardData";
+import { Skeleton } from "@mui/material";
+import { toDataURL } from "../imageCach";
 
 interface Props {
   onSetItem?: (e: any) => void;
+  link?: boolean;
   item: any;
 }
 
-export default function GameCard({ item, onSetItem }: Props) {
+export default function GameCard({ item, onSetItem, link }: Props) {
   const [mouseOver, setMouseOver] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const handleClick = (over: boolean) => {
     onSetItem && onSetItem(item);
   };
 
+  React.useEffect(() => {
+    if (item) {
+      setLoading(true);
+      toDataURL(item.imageOver, function (dataUrl) {
+        // setTimeout(() => {
+        //   setLoading(false);
+        // }, 3000);
+        setLoading(false);
+      });
+    }
+  }, [item]);
+
   return (
     <div className={classes.cardBody}>
-      <div className={classes.center}>
-        <div className={classes.line}>
-          <Card
-            key={item._id}
-            sx={{
-              cursor: "pointer",
-              borderRadius: 5,
-              boxShadow: 10,
-            }}
-            className={classes.card}
-            onClick={() => handleClick(!mouseOver)}
-            onMouseOver={() => setMouseOver(true)}
-            onMouseOut={() => setMouseOver(false)}
-          >
-            <div className={classes.imageContainer}>
-              <img
-                src={item.imageOver}
-                alt="game"
-                className={classes.enlargeImage}
-              />
-            </div>
-          </Card>
+      {item ? (
+        <div
+          className={classes.center}
+          key={item._id}
+          onClick={() => handleClick(!mouseOver)}
+          onMouseOver={() => setMouseOver(true)}
+          onMouseOut={() => setMouseOver(false)}
+        >
+          <div className={classes.card}>
+            <img
+              src={item.imageOver}
+              alt="game"
+              className={classes.enlargeImage}
+            />
+          </div>
+          {!link && <CardData item={item} />}
         </div>
-        <CardData item={item} />
-      </div>
+      ) : (
+        <Skeleton
+          animation="wave"
+          variant="rounded"
+          width={235}
+          sx={{ bgcolor: "grey.900" }}
+          height={!link ? 198 : 120}
+        />
+      )}
     </div>
   );
 }

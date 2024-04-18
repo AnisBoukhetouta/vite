@@ -1,0 +1,98 @@
+.container {
+  padding: 4rem;
+  padding-top: 10rem;
+}
+.headingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  padding-bottom: 1rem;
+}
+.largeHeading {
+  font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 36px;
+}
+.heading {
+  font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  padding-top: 3rem;
+}
+.fieldName {
+  font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: rgb(229, 230, 238);
+  margin-top: 24px !important;
+  margin-bottom: 10px !important;
+}
+.pageTitle {
+  font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: rgb(249, 250, 255);
+  padding-bottom: 8px;
+  margin: 0px;
+}
+.description {
+  font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: rgb(135, 138, 158);
+  text-wrap: wrap;
+  margin-top: 24px !important;
+  margin-bottom: 10px !important;
+}
+.description2 {
+  font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: rgb(135, 138, 158);
+  text-wrap: wrap;
+  margin: 10px 0 !important;
+}
+.alignedFlexBox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.alink {
+  color: #a48eff;
+  font-weight: 700;
+  text-decoration: none;
+}
+.lobbyHeaderButton {
+  font-family: Nunito, Arial, Helvetica Neue, Helvetica, sans-serif;
+  padding: 12px 15px;
+  width: 160px;
+  border-radius: 12px;
+  font-size: 23px;
+  font-weight: 900;
+  color: rgb(10, 10, 10);
+  background: #f7ff19;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.buttonline {
+  margin-top: 30px;
+  width: 160px;
+  outline-color: transparent;
+  outline-offset: 0.75rem;
+  outline-width: 0;
+  outline-style: solid;
+  transition-duration: 0.1s;
+  transition-property: outline-color, outline-offset, outline-width;
+  transition-timing-function: ease-out;
+  overflow: clip;
+  border-radius: 20px;
+}
+.buttonline:hover {
+  outline-width: 0.3rem;
+  outline-offset: 0.25rem;
+  outline-color: rgb(190, 188, 188);
+}

@@ -10,8 +10,9 @@ export default function Model() {
         maxAzimuthAngle={0.2}
         minPolarAngle={1.34}
         maxPolarAngle={1.34}
-        minDistance={4.35}
-        maxDistance={7}
+        maxDistance={7.5}
+        // minDistance={5.5}
+        minDistance={6.5}
       />
       <ambientLight />
       <directionalLight
@@ -19,7 +20,7 @@ export default function Model() {
         castShadow
         shadow-mapSize={1024}
       />
-      <group position={[1, -0.5, 3.5]}>
+      <group position={[1, -0.2, 3.5]}>
         <Character />
       </group>
       <mesh

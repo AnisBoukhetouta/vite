@@ -2,18 +2,34 @@
   display: block;
   text-decoration: none;
   color: var(--light);
+  padding: 6px;
+  padding-left: 20px;
+  padding-inline-end: 20px;  
+  font: 16px "system-ui";
+  font-weight: 400;
 }
 
 .navlink a:hover,
 .navlink a:active,
 .navlink a.active {
   cursor: pointer;
-  color: var(--accent);
+  /* color: var(--accent); */
   transition: 0.33s;
+  padding: 6px;
+  padding-left: 20px;
+  padding-inline-end: 20px;
+  background-color: rgba(56, 55, 55, 0.862);
+  border-radius: 8px;
 }
 
 @media (max-width: 40em) {
   .navlink a {
     margin: var(--padding-1);
+  }
+}
+
+@media screen and (max-width: 1227px) {
+  .navlink {
+    display: none;
   }
 }

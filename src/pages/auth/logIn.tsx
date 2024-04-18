@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "../../firebase";
 import { NavLink, useNavigate } from "react-router-dom";
 import classes from "./auth.module.css";
@@ -10,15 +14,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import {
-  Google,
-} from "@mui/icons-material";
+import { Google } from "@mui/icons-material";
+import Logo from "./logo";
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [able, setAble] = useState(false);
+  const [message, setMessage] = useState("");
 
   const onLogin = (e) => {
     e.preventDefault();
@@ -26,14 +30,28 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        navigate("/");
+        navigate("/play");
         console.log(user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setMessage(errorMessage);
         console.log(errorCode, errorMessage);
       });
+  };
+
+  const onGoogle = async (e) => {
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      // User signed in successfully
+      // Redirect or perform additional actions as needed
+      console.log("SUCCESSFUL");
+    } catch (error) {
+      console.error("Error signing in with Google:", error);
+      // Handle error here, e.g., show error message to user
+    }
   };
 
   useEffect(() => {
@@ -42,11 +60,18 @@ const Login = () => {
     } else setAble(false);
   }, [email, password]);
 
+  useEffect(() => {
+    auth.onAuthStateChanged(function (user) {
+      if (user) navigate("/play");
+    });
+  });
+
   return (
     <div className={classes.authMain}>
       <Container className={classes.formContainer}>
-        <img src="/logo.svg" />
+        <Logo />
         <p className={classes.formLabel}>Sign In</p>
+        <div className={classes.errorMessage}>{message}</div>
         <form className={classes.form}>
           <TextField
             type="email"
@@ -94,6 +119,7 @@ const Login = () => {
             startIcon={
               <Google sx={{ width: 30, height: 30, marginRight: 1 }} />
             }
+            onClick={onGoogle}
           >
             With Google
           </Button>
@@ -110,7 +136,7 @@ const Login = () => {
         </form>
         <Typography sx={{ marginTop: 2 }} className={classes.divider}>
           Create a new account.{" "}
-          <NavLink to="/signup" className={classes.fontStyle}>
+          <NavLink to="/regist/signup" className={classes.fontStyle}>
             Sign Up
           </NavLink>
         </Typography>

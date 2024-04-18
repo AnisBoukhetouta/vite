@@ -1,0 +1,16 @@
+.navlinks {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: var(--padding-1);
+}
+
+
+@media (max-width: 45em) {
+  .navlinks {
+    display: flex;
+    flex-flow: column;
+  }
+}
+
+

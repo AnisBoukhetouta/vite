@@ -1,0 +1,129 @@
+.languageButton {
+  width: 26px;
+  height: 26px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.loginButton {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: rgb(78, 76, 76);
+  border: 0;
+  cursor: pointer;
+}
+
+.downloadButton {
+  appearance: none;
+  border: 0px;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0px;
+  transition: color var(--easing-duration, 0.2s)
+      var(--easing, cubic-bezier(0.65, 0, 0.35, 1)),
+    background-color var(--easing-duration, 0.2s)
+      var(--easing, cubic-bezier(0.65, 0, 0.35, 1));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  --link-block-padding: 0.25rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: rgba(54, 52, 52, 0.88);
+  display: flex;
+  justify-content: space-between;
+  margin-block: calc(var(--link-block-padding) * -1);
+  margin-inline: calc(var(--link-inline-padding) * -1);
+  min-height: 2rem;
+  padding-block: var(--link-block-padding);
+  padding-inline: var(--link-inline-padding);
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  z-index: 3;
+  --link-inline-padding: 0.75rem;
+  background: #f7ff19;
+  margin: 0px;
+  text-align: center;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.downloadText {
+  font-family: Inter, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  flex-grow: 1;
+}
+
+.epicButton {
+  appearance: none;
+  background-color: transparent;
+  border: 0px;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0px;
+  text-decoration: none;
+  user-select: none;
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.epicButton:hover .epicText {
+  transform: translateY(0.1rem);
+}
+
+.svg1:hover path {
+  fill: rgb(255, 255, 255);
+  transition: 0.33s;
+}
+
+.search {
+  border-radius: 30px;
+  border: 2px solid var(--light);
+  padding: 2px;
+  color: var(--light);
+}
+::placeholder {
+	color: rgb(199, 207, 209);
+}
+.searchInput {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  gap: 5px;
+  height: 25px;
+  color: var(--light);
+}
+
+.closeButton {
+  background-color: transparent;
+  cursor: pointer;
+  border: 0;
+  width: 12px;
+  margin-left: 10px;
+}
+.searchInputfield {
+  height: 25px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  outline: none;
+}
+
+.searchInputfield:focus {
+  border: none;
+  outline: none;
+}
+
+.searchButtonIcon {
+  margin-left: 5px;
+  width: 25px;
+}

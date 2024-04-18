@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "../../firebase";
 import classes from "./auth.module.css";
 import {
@@ -12,6 +16,7 @@ import {
 } from "@mui/material";
 import { Google } from "@mui/icons-material";
 import axios from "axios";
+import Logo from "./logo";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -19,6 +24,7 @@ const Signup = () => {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [uid, setUid] = useState("");
   const [able, setAble] = useState(false);
 
   const onSignUp = async (e) => {
@@ -40,7 +46,7 @@ const Signup = () => {
       } = user;
       const userInfo = {
         userName,
-        email: userEmail,
+        email: email,
         creationTime,
         lastSignInTime,
         uid,
@@ -51,9 +57,22 @@ const Signup = () => {
 
       const response = await axios.post(userInfoUrl, userInfo);
       console.log("RESPONSE", response);
-      navigate("/login");
+      navigate("/regist/login");
     } catch (error) {
       console.error("Error signing up:", error);
+      // Handle error here, e.g., show error message to user
+    }
+  };
+
+  const onGoogle = async (e) => {
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      // User signed in successfully
+      // Redirect or perform additional actions as needed
+      console.log("SUCCESSFUL");
+    } catch (error) {
+      console.error("Error signing in with Google:", error);
       // Handle error here, e.g., show error message to user
     }
   };
@@ -64,10 +83,16 @@ const Signup = () => {
     } else setAble(false);
   }, [userEmail, password, userName]);
 
+  useEffect(() => {
+    auth.onAuthStateChanged(function (user) {
+      if (user) navigate("/play");
+    });
+  });
+
   return (
     <div className={classes.authMain}>
       <Container className={classes.formContainer}>
-        <img src="/logo.svg" />
+        <Logo />
         <p className={classes.formLabel}>Sign Up</p>
         <form className={classes.form}>
           <TextField
@@ -133,6 +158,7 @@ const Signup = () => {
             startIcon={
               <Google sx={{ width: 30, height: 30, marginRight: 1 }} />
             }
+            onClick={onGoogle}
           >
             With Google
           </Button>
@@ -149,7 +175,7 @@ const Signup = () => {
         </form>
         <Typography sx={{ marginTop: 2 }} className={classes.divider}>
           Already have an account?{" "}
-          <NavLink to="/login" className={classes.fontStyle}>
+          <NavLink to="/regist/login" className={classes.fontStyle}>
             Sign in
           </NavLink>
         </Typography>

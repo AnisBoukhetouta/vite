@@ -2,14 +2,18 @@
   display: flex;
   flex-flow: row;
   align-items: center;
-  gap: var(--padding-2);
+  gap: 5px;
   padding: var(--padding-1);
   font-size: large;
   list-style: none;
 }
+
+
 @media (max-width: 45em) {
   .navlinks {
     display: flex;
     flex-flow: column;
   }
 }
+
+

@@ -1,10 +1,11 @@
 :root {
   --dark: #393e41;
-  --light: #f6f7eb;
+  /* --light: #f6f7eb; */
+  --light: #ffffff;
   --accent: #f97432;
   --shadow: #00000080;
   --black: #000000ff;
-  --transparent: #18181cc9;
+  --transparent: #171717;
 
   --container-1-width: 100ch;
   --padding-1: 1em;
@@ -27,7 +28,12 @@
 .MuiFormControl-root {
   border: 1px solid var(--light) !important;
 }
-.MuiInputBase-input, .MuiInputLabel-root {
+.MuiOutlinedInput-root,
+.MuiFormControl-root {
+  border-radius: 10px !important;
+}
+.MuiInputBase-input,
+.MuiInputLabel-root {
   color: var(--light) !important;
 }
 .css-1oprhov::after {
@@ -39,4 +45,19 @@
 .Mui-disabled {
   color: var(--light) !important;
   cursor: alias;
+}
+.filepond--drip {
+  opacity: 1 !important;
+  background: rgb(54, 54, 54) !important;
+  border: 2px dashed rgba(255, 255, 255);
+  border-radius: 0.5rem !important;
+}
+.filepond--drop-label {
+  color: rgb(202, 196, 196) !important;
+}
+.filepond--root {
+  min-width: 9.5em;
+}
+.MuiSvgIcon-root {
+  color: white !important;
 }

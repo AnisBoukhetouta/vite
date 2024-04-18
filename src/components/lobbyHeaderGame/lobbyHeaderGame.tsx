@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import classes from "./lobbyHeaderGame.module.css";
-import { Container } from "@mui/material";
 import axios from "axios";
 import GameCards from "../gameCards/gameCards";
 
 interface Item {
   _id: string;
-  imageCardOver: string;
+  imageOver: string;
 }
 
 export interface Data {
@@ -57,16 +56,15 @@ export default function LobbyHeaderGame() {
   fetchedData.map((data, index) => {
     items.push({
       _id: data._id,
-      imageCardOver: `${baseUrl}/${data.files[0].destination}/${data.files[2].fileName}`,
+      imageOver: `${baseUrl}/${data.files[0].destination}/${data.files[2].fileName}`,
     });
   });
 
   return (
     <div className={classes.lobodyGame}>
       <div className={classes.topGames}>
-        <Container maxWidth="lg" className={classes.lobbyCardsContainer}>
-          <GameCards cardData={items} />
-        </Container>
+        <div className={classes.title}>BY EPIC</div>
+        <GameCards cardData={items} />
       </div>
     </div>
   );

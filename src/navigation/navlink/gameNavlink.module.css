@@ -1,0 +1,46 @@
+.navlink a {
+  display: block;
+  text-decoration: none;
+  color: var(--light);
+  padding: 6px 20px;
+  color: var(--light);
+  text-align: center;
+  font: 20px "system-ui";
+  font-weight: 1000;
+  text-wrap: nowrap;
+  margin-right: 5px;
+}
+.disabledButton {
+  display: block;
+  text-decoration: none;
+  color: var(--light);
+  padding: 6px 20px;
+  color: var(--light);
+  text-align: center;
+  font: 20px "system-ui";
+  font-weight: 1000;
+  text-wrap: nowrap;
+  cursor: pointer;
+}
+
+.navlink a:hover,
+.navlink a:active,
+.navlink a.active {
+  cursor: pointer;
+  color: var(--dark);
+  transition: 0.33s;
+  background-color: rgba(255, 255, 255, 0.862);
+  border-radius: 8px;
+}
+
+/* @media (max-width: 40em) {
+  .navlink a {
+    margin: var(--padding-1);
+  }
+} */
+
+@media screen and (max-width: 1227px) {
+  .navlink {
+    display: none;
+  }
+}
