@@ -96,3 +96,13 @@
   outline-offset: 0.25rem;
   outline-color: rgb(190, 188, 188);
 }
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+[aria-disabled="true"] {
+  border: none;
+  outline: none;
+}

@@ -19,8 +19,11 @@
   transform: translateY(-200%);
 }
 
-/* @media (min-width: 40em) {
+@media (max-width: 40em) {
   .sidebar {
-    display: none;
+    top: 0;
   }
-} */
+  .open {
+    z-index: 1000;
+  }
+}

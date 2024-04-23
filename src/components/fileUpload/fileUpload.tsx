@@ -23,7 +23,7 @@ registerPlugin(
 );
 
 interface Props {
-  height: number;
+  height?: number;
   maxFiles?: number;
   fieldName: string;
   title: string;

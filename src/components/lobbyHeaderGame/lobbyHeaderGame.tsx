@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import classes from "./lobbyHeaderGame.module.css";
 import axios from "axios";
 import GameCards from "../gameCards/gameCards";
+import AppConstants from "../../AppConstants";
 
 interface Item {
   _id: string;
@@ -33,14 +34,12 @@ export interface Data {
 export default function LobbyHeaderGame() {
   const [fetchedData, setFetchedData] = React.useState<Data[]>([]);
   const items: Item[] = [];
-  const getFilesUrl = import.meta.env.VITE_GET_FILES;
-  const baseUrl = import.meta.env.VITE_APP_BASE;
 
   useEffect(() => {
     const fetch = async () => {
       try {
         await axios
-          .get(getFilesUrl)
+          .get(AppConstants.getFilesUrl)
           .then((response) => {
             setFetchedData(response.data);
             console.log("FetchedData~~~~~~", response.data);
@@ -56,7 +55,7 @@ export default function LobbyHeaderGame() {
   fetchedData.map((data, index) => {
     items.push({
       _id: data._id,
-      imageOver: `${baseUrl}/${data.files[0].destination}/${data.files[2].fileName}`,
+      imageOver: `${AppConstants.baseUrl}/${data.files[0].destination}/${data.files[2].fileName}`,
     });
   });
 

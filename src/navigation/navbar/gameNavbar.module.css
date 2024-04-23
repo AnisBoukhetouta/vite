@@ -89,11 +89,12 @@
     cursor: pointer;
     display: block;
   }
-
   .tools {
     display: none;
   }
-
+  .gameNavLinksView {
+    display: none;
+  }
   .tool {
     padding: var(--padding-1);
   }

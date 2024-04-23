@@ -1,8 +1,7 @@
 .topGames {
-  width: 90vw;
+  width: 90%;
   position: absolute;
   bottom: -9rem;
-  left: 4rem;
   scrollbar-width: none;
   transition: all 1s ease-out;
   display: flex;

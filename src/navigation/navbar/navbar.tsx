@@ -30,7 +30,9 @@ const navbar = (props) => {
         <NavLink to="/" style={{ textDecoration: "none" }}>
           <h1 className={classes.title}>Pwn IQ</h1>
         </NavLink>
-        <Navlinks />
+        <div className={classes.navLinksView}>
+          <Navlinks />
+        </div>
       </nav>
       <nav className={classes.tools}>
         {search ? (
@@ -51,7 +53,7 @@ const navbar = (props) => {
         <DownloadButton />
       </nav>
       <nav className={classes.menuTool}>
-        <button className={classes.menuButton}>
+        <button onClick={props.toggleSidebar} className={classes.menuButton}>
           <MenuButton />
         </button>
       </nav>

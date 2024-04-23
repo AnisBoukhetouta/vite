@@ -66,19 +66,12 @@ const App = () => {
       <Route
         path="/play"
         element={
-          <GameLayout>
-            <Home />
-          </GameLayout>
+          // <GameLayout>
+          <Home />
+          // </GameLayout>
         }
       />
-      <Route
-        path="/*"
-        element={
-          <GameLayout>
-            <Home />
-          </GameLayout>
-        }
-      />
+      <Route path="/*" element={<Home />} />
       <Route
         path="/inventory"
         element={

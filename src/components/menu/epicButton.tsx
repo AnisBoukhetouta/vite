@@ -8,7 +8,7 @@ export default function EpicButton() {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32 32"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           fill="white"
           height="32"
           width="32"
@@ -20,15 +20,15 @@ export default function EpicButton() {
         <svg
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
-          fill-rule="evenodd"
+          fillRule="evenodd"
           fill="white"
           height="20"
           width="20"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M15.53 7.47a.75.75 0 0 0-1.06 0L10 11.94 5.53 7.47a.75.75 0 0 0-1.06 1.06L10 14.06l5.53-5.53a.75.75 0 0 0 0-1.06Z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           ></path>
         </svg>
       </span>

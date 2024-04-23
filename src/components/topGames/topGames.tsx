@@ -39,14 +39,12 @@ export default function TopGames({ setItem }: Props) {
   const [fetchedData, setFetchedData] = React.useState<Data[]>([]);
 
   const items: Item[] = [];
-  const getFilesUrl = import.meta.env.VITE_GET_FILES;
-  const baseUrl = import.meta.env.VITE_APP_BASE;
 
   React.useEffect(() => {
     const fetch = async () => {
       try {
         await axios
-          .get(getFilesUrl)
+          .get(AppConstants.getFilesUrl)
           .then((response) => {
             setFetchedData(response.data);
             console.log("FetchedData~~~~~~", response.data);
@@ -62,7 +60,7 @@ export default function TopGames({ setItem }: Props) {
   fetchedData.map((data, index) => {
     items.push({
       _id: data._id,
-      imageOver: `${baseUrl}/${data.files[0].destination}/${data.files[2].fileName}`,
+      imageOver: `${AppConstants.baseUrl}/${data.files[0].destination}/${data.files[2].fileName}`,
     });
   });
 

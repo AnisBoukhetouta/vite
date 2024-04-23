@@ -1,5 +1,5 @@
 .topGames {
-  width: 95vw;
+  width: 100%;
   overflow-x: auto;
   scrollbar-width: none;
   display: flex;
@@ -8,13 +8,11 @@
 }
 
 .lobodyGame {
-  margin-left: 4vh;
-  margin-top: 10px;
+  padding: 0 30px;
 }
 
 .title {
-  margin-top: 50px;
-  margin-left: 10px;
+  margin-top: 40px;
   font-family: "HeadingNowVariable", Arial, sans-serif;
   font-size: 20px;
   font-weight: 900;
@@ -22,7 +20,7 @@
   transform: skewX(-15deg);
 }
 
-@media screen and (max-width: 1227px) {
+@media screen and (max-width: 1023px) {
   .lobodyGame {
     margin-top: 10rem;
   }

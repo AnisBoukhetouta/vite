@@ -30,7 +30,9 @@ const gameNavbar = (props) => {
         <NavLink to="/" style={{ textDecoration: "none" }}>
           <h1 className={classes.title}>PwnIQ</h1>
         </NavLink>
-        <GameNavlinks />
+        <div className={classes.gameNavLinksView}>
+          <GameNavlinks />
+        </div>
       </nav>
       <div className={classes.tools}>
         {search ? (
@@ -47,7 +49,7 @@ const gameNavbar = (props) => {
         )}
       </div>
       <nav className={classes.menuTool}>
-        <button className={classes.menuButton}>
+        <button className={classes.menuButton} onClick={props.toggleSidebar}>
           <MenuButton />
         </button>
       </nav>

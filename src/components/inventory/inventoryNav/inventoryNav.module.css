@@ -1,0 +1,48 @@
+.inventoryNavContainer {
+  width: 320px;
+  height: 100%;
+  padding-top: 5rem;
+}
+
+.inventoryNav {
+  width: 250px;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.387);
+  border-radius: 15px;
+}
+
+.inventoryNavButton {
+  width: 100%;
+  height: 55px;
+  padding: 1rem;
+  align-items: center;
+  display: flex;
+  border: 0;
+  gap: 1rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.buttonIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.buttonTitle {
+  font-size: 20px;
+  color: white;
+  font-weight: 800;
+}
+
+.inventoryNavButton:hover {
+  background: #e2e2e2cd;
+  border-radius: 15px;
+}
+
+.inventoryNavButton:hover .buttonTitle {
+  color: rgba(17, 15, 15, 0.869);
+}
+
+.inventoryNavButton:hover path {
+  fill: rgba(17, 15, 15, 0.869);
+}

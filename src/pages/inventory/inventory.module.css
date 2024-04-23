@@ -1,63 +1,10 @@
-.inventoryMain {
+.inventoryContainer {
   width: 100vw;
   height: 100vh;
   padding-top: 8rem;
   padding-left: 4rem;
   display: flex;
   background: radial-gradient(#1ab1f2, #0c2858);
-  overflow: auto;
-}
-
-.inventoryMenu {
-  width: 320px;
-  height: 100%;
-  padding-top: 5rem;
-}
-
-.inventoryMenuBody {
-  width: 250px;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.387);
-  border-radius: 15px;
-}
-
-.inventoryMenuButton {
-  width: 100%;
-  height: 55px;
-  padding: 1rem;
-  align-items: center;
-  display: flex;
-  border: 0;
-  gap: 1rem;
-  background-color: transparent;
-  cursor: pointer;
-}
-
-.buttonIcon {
-  width: 30px;
-  height: 30px;
-}
-
-.buttonTitle {
-  font-size: 20px;
-  color: white;
-  font-weight: 800;
-}
-
-.inventoryMenuButton:hover {
-  background: #e2e2e2cd;
-  border-radius: 15px;
-}
-
-.inventoryMenuButton:hover .buttonTitle {
-  color: rgba(17, 15, 15, 0.869);
-}
-
-.inventoryMenuButton:hover path {
-  fill: rgba(17, 15, 15, 0.869);
-}
-
-.inventoryBody {
-  width: 80%;
-  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }

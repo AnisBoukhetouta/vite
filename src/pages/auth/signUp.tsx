@@ -3,7 +3,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
+  getAuth,
   signInWithPopup,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import classes from "./auth.module.css";
@@ -17,14 +19,13 @@ import {
 import { Google } from "@mui/icons-material";
 import axios from "axios";
 import Logo from "./logo";
+import AppConstants from "../../AppConstants";
 
 const Signup = () => {
   const navigate = useNavigate();
-  const userInfoUrl = import.meta.env.VITE_USER_INFO;
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [uid, setUid] = useState("");
   const [able, setAble] = useState(false);
 
   const onSignUp = async (e) => {
@@ -55,7 +56,12 @@ const Signup = () => {
         refreshToken,
       };
 
-      const response = await axios.post(userInfoUrl, userInfo);
+      const authorize = getAuth();
+      updateProfile(authorize.currentUser, {
+        displayName: userName,
+      }).catch((Error) => console.log(Error));
+
+      const response = await axios.post(AppConstants.userInfoUrl, userInfo);
       console.log("RESPONSE", response);
       navigate("/regist/login");
     } catch (error) {
@@ -82,12 +88,6 @@ const Signup = () => {
       setAble(true);
     } else setAble(false);
   }, [userEmail, password, userName]);
-
-  useEffect(() => {
-    auth.onAuthStateChanged(function (user) {
-      if (user) navigate("/play");
-    });
-  });
 
   return (
     <div className={classes.authMain}>

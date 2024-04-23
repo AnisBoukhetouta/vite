@@ -80,7 +80,7 @@
   display: none;
 }
 
-@media screen and (max-width: 1227px) {
+@media screen and (max-width: 800px) {
   .menuButton {
     width: 25px;
     height: 25px;
@@ -89,11 +89,12 @@
     cursor: pointer;
     display: block;
   }
-
+  .navLinksView {
+    display: none;
+  }
   .tools {
     display: none;
   }
-
   .tool {
     padding: var(--padding-1);
   }

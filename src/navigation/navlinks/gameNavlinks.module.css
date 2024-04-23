@@ -3,14 +3,13 @@
   align-items: center;
   list-style: none;
   padding: var(--padding-1);
+  overflow-x: hidden;
 }
-
 
 @media (max-width: 45em) {
   .navlinks {
     display: flex;
     flex-flow: column;
+    margin: 10px;
   }
 }
-
-

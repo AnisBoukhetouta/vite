@@ -103,6 +103,8 @@ const AppConstants = {
     "HTML 5",
   ],
 
+  fileTypes: ["Outfit", "Backbling", "Pickaxe", "Glider", "Contrail", "Aura"],
+
   // unityConfig: {
   //   loaderUrl: "Build/Public.loader.js",
   //   dataUrl: "Build/Public.data.gz",
@@ -169,6 +171,20 @@ const AppConstants = {
       imageCardOver: "/images/initialCardImages/5.jpeg",
     },
   ],
+  characterItems : [
+    { fileType: "Outfit", image: "images/inventory/empty.png" },
+    { fileType: "Backbling", image: "images/inventory/empty.png" },
+    { fileType: "Pickaxe", image: "images/inventory/empty.png" },
+    { fileType: "Glider", image: "images/inventory/empty.png" },
+    { fileType: "Contrail", image: "images/inventory/empty.png" },
+    { fileType: "Aura", image: "images/inventory/empty.png" },
+  ],
+  baseUrl: import.meta.env.VITE_APP_BASE,
+  uploadUrl: import.meta.env.VITE_UPLOAD_FILES,
+  getFilesUrl: import.meta.env.VITE_GET_FILES,
+  userInfoUrl: import.meta.env.VITE_USER_INFO,
+  getCharacterUrl: import.meta.env.VITE_GET_CHARACTER_FILE,
+  characterFileUploadUrl: import.meta.env.VITE_CHARACTER_FILE_UPLOAD,
 };
 
 export default AppConstants;

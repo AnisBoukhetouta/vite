@@ -17,9 +17,9 @@
 }
 
 .image {
-  position: relative;
-  max-width: 1100px;
-  height: 70vh;
+  margin-top: 4rem;
+  width: 100%;
+  max-height: 600px;
 }
 
 .lobbyHearder {

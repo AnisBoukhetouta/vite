@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./sidebar.module.css";
+import classes from "./gameSidebar.module.css";
 
 import Container from "@mui/material/Container";
 
